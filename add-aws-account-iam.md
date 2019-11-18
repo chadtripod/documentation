@@ -152,7 +152,7 @@ For each account you want to deploy to, perform the following:
 
 1. Log into the browser-based AWS Console
 1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Roles" on the left hand side
+1. Click on **Roles** on the left hand side
 1. Click on "Create role"
 1. For now, for the "Choose the service that will use this role", select "EC2".  We will change this later, because we want to specify an explicit consumer of this role later on.
 1. Click on "Next: Permissions"
