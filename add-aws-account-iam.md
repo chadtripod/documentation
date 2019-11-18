@@ -153,21 +153,19 @@ Spinnaker-Trust.json
 
 Create JSON files to be used against Spinnaker Roles
    ```bash
-   # Create JSON files for Policy 
+# Create JSON files for Policy 
 aws iam create policy --policy-name PassRole-and-Certificates file://PassRole-and-Certificates.json
 aws iam create policy --policy-name SpinnakerManagingPoilcy file://SpinnakerManagingPoilcy.json
    ```
 Create AWS Roles for Spinnaker Managing and Managed Accounts
-
  ```bash
-   # Create JSON files for Policy 
+# Create JSON files for Policy 
 aws iam create-role --role-name Spinnaker 
 aws iam create-role --role-name SpinnakerManagedRole --assume-role-policy-document file://Spinnaker_Trust.json
    ```
 Bind AWS Policies to Roles for proper trust
-
 ```bash
-   # Create JSON files for Policy 
+# Create JSON files for Policy 
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::[ACCOUNT_ID]:PassRole-and-Certificates.json
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::aws:policy/PowerUserAccess"
    ```
