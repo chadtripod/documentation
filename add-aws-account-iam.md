@@ -159,7 +159,7 @@ aws iam create policy --policy-name SpinnakerManagingPoilcy file://SpinnakerMana
    ```
 Create AWS Roles for Spinnaker Managing and Managed Accounts
  ```bash
-# Create JSON files for Policy 
+# Create Managing (Spinnaker) and Managed (SpinnakerManagedRole) Roles 
 aws iam create-role --role-name Spinnaker 
 aws iam create-role --role-name SpinnakerManagedRole --assume-role-policy-document file://Spinnaker_Trust.json
    ```
