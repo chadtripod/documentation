@@ -170,7 +170,7 @@ aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aw
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::aws:policy/PowerUserAccess"
    ```
 
-### Instance Role Part 1: Creating a Managed Account IAM Role in each your target AWS Accounts
+### Instance Role Part 1: Creating a Managed Account IAM Role in each your target AWS Accounts - AWS Console
 
 In each account that you want Spinnaker to deploy to, you should create an IAM role for Spinnaker to assume.
 
