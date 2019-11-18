@@ -315,6 +315,26 @@ For each account you want to deploy to, perform the following:
 
 8. Click "Update Trust Policy", in the bottom right.
 
+If you selected the second options of creating a new Role to bind to an instance which does not already have a Role bound your JSON Policy will look like this with the mangaing Role.
+
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+           "AWS": [
+             "arn:aws:iam::795692138404:role/Spinnaker"
+           ]
+         },
+         "Action": "sts:AssumeRole"
+       }
+     ]
+   }
+   ```
+
 ### Instance Role Part 6: Adding the Managed Accounts to Spinnaker via Halyard
 
 The Clouddriver pod(s) should be now able to assume each of the Managed Roles (Target Roles) in each of your Deployment Target accounts.  We need to configure Spinnaker to be aware of the accounts and roles its allowed to consume.  This is done via Halyard.
