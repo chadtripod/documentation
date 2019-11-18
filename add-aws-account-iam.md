@@ -152,19 +152,19 @@ For each account you want to deploy to, perform the following:
 
 1. Log into the browser-based AWS Console
 1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on **Roles** on the left hand side
-1. Click on "Create role"
-1. For now, for the "Choose the service that will use this role", select "EC2".  We will change this later, because we want to specify an explicit consumer of this role later on.
-1. Click on "Next: Permissions"
-1. Search for "PowerUserAccess" in the search filter, and select the Policy called "PowerUserAcces"
-1. Click "Next: Tags"
+1. Click on **"Roles"** on the left hand side
+1. Click on **"Create role"**
+The 1. For now, for the "Choose the service that will use this role", select **"EC2"**.  We will change this later, because we want to specify an explicit consumer of this role later on.
+1. Click on **"Next: Permissions"**
+1. Search for **"PowerUserAccess"** in the search filter, and select the Policy called **"PowerUserAcces"**
+1. Click **"Next: Tags"**
 1. Optionally, add tags that will identify this role.
-1. Click "Next: Review"
-1. Enter a Role Name.  For example, "DevSpinnakerManagedRole".  Optionally, add a description, such as "Allows Spinnaker Dev Cluster to perform actions in this account."
-1. Click "Create Role"
+1. Click **"Next: Review"**
+1. Enter a Role Name.  For example, **"DevSpinnakerManagedRole"**.  Optionally, add a description, such as "Allows Spinnaker Dev Cluster to perform actions in this account."
+1. Click **"Create Role"**
 1. In the list of Roles, click on your new Role (you may have to scroll down or filter for it).
-1. Click on "Add inline policy" (on the right).
-1. Click on the "JSON" tab, and paste in this:
+1. Click on **"Add inline policy"** (on the right).
+1. Click on the **"JSON"** is  tab, and paste in this:
 
    ```json
    {
@@ -184,8 +184,8 @@ For each account you want to deploy to, perform the following:
    }
    ```
 
-1. Click "Review Policy"
-1. Call it "PassRole-and-Certificates", and click "Create Policy"
+1. Click **"Review Policy"**
+1. Call it **"PassRole-and-Certificates"**, and click **"Create Policy"**
 1. Copy the Role ARN and save it.  It should look something like this: `arn:aws:iam::123456789012:role/DevSpinnakerManagedRole`.  **This will be used in the section "Instance Role Part 3", and in the Halyard section, "Instance Role Part 6"**
 
 You will end up with a Role ARN for each Managed / Target account.  The Role names do not have to be the same (although it is a bit cleaner if they are).  For example, you may end up with roles that look like this:
@@ -200,12 +200,12 @@ When deploying EC2 instances, Spinnaker currently requires that you attach a rol
 
 1. Log into the browser-based AWS Console
 1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Roles" on the left side
-1. Click "Create role"
-1. Select "EC2", and click "Next: Permissions"
-1. Click "Next: Tags"
-1. Optionally, add tags if required by your organization.  Then, click "Next: Review".
-1. Specify the Role Name as "BaseIAMRole"
+1. Click on **"Roles"** on the left side
+1. Click **"Create role"**
+1. Select **"EC2"**, and click **"Next: Permissions"**
+1. Click **"Next: Tags"**
+1. Optionally, add tags if required by your organization.  Then, click **"Next: Review"**.
+1. Specify the Role Name as **"BaseIAMRole"**
 
 ### Instance Role Part 3: Creating a Managing Account IAM Policy in your primary AWS Account
 
@@ -213,9 +213,9 @@ In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS 
 
 1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
 1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Policies" on the left hand side
-1. Click on "Create Policy"
-1. Click on the "JSON" tab, and paste in this:
+1. Click on **"Policies"** on the left hand side
+1. Click on **"Create Policy"**
+1. Click on the **"JSON"** tab, and paste in this:
 
    ```json
    {
@@ -245,8 +245,8 @@ In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS 
    ```
 
 1. Update the `sts:AssumeRole` block with the list of Managed Roles you created in **Instance Role Part 1**.
-1. Click on "Review Policy"
-1. Create a name for your policy, such as "SpinnakerManagingPolicy".  *This policy will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the policy.  **This will be used in the next section, "Instance Role Part 4"**
+1. Click on **"Review Policy"**
+1. Create a name for your policy, such as **"SpinnakerManagingPolicy"**.  *This policy will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the policy.  **This will be used in the next section, "Instance Role Part 4"**
 1. On the list policies, click your newly-created Policy.
 
 _(This policy could also be attached inline directly to the IAM Instance Role, rather than creating a standalone policy)_
@@ -255,30 +255,30 @@ _(This policy could also be attached inline directly to the IAM Instance Role, r
 
 1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
 1. Navigate to the EC2 page (click on "Services" at the top, then on "EC2" under "Compute")
-1. Click on "Running Instances"
+1. Click on **"Running Instances"**
 1. Find one of the nodes which is part of your EKS or other Kubernetes cluster, and select it.
-1. In the Instance details section of the screen (in the lower half), find the "IAM Role" and click on it to go to the Role page.
-1. Click on "Attach Policies"
+1. In the Instance details section of the screen (in the lower half), find the **"IAM Role"** and click on it to go to the Role page.
+1. Click on **"Attach Policies"**
 1. Search for the Policy that you created, and select it.
-1. Click "Attach Policy"
+1. Click **"Attach Policy"**
 1. Back on the screen for the Role, copy the node role ARN.  It should look something like this: `arn:aws:iam::123456789010:role/node-role`.  **This will be used in the next section, "Instance Role Part 5"**
 
 Note: If your instances do not have an IAM instance profile and role attached to them, you can follow these steps to create and attach one:
 
 1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
 1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance"
-1. Click on "Roles"
-1. Click on "Create role"
-1. Select "EC2" for the service that will use the role, and click "Next: Permissions"
-1. In the policy filter, enter the name of the managing policy you created in step 3.  Click "Next: Tags"
-1. Add any relevant tags.  Click "Next: Review"
-1. Give the role a name, such as "Spinnaker". *This role will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the role.
+1. Click on my **"Roles"**
+1. Click on **"Create role"**
+1. Select **"EC2"** for the service that will use the role, and click **"Next: Permissions"**
+1. In the policy filter, enter the name of the managing policy you created in step 3.  Click **"Next: Tags"**
+1. Add any relevant tags.  Click **"Next: Review"**
+1. Give the role a name, such as **"Spinnaker"**. *This role will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the role.
 1. Navigate to the EC2 page (click on "Services" at the top, then on "EC2" under "Compute")
-1. Click on "Running Instances"
+1. Click on **"Running Instances"**
 1. Find one of the nodes which is part of your EKS or other Kubernetes cluster, and select it.
-1. Click "Actions" at the top, then select "Instance Settings" and then "Attach/Replace IAM Role"
-1. In the "IAM role" dropdown, select the IAM role that you just created
-1. Click "Apply"
+1. Click **"Actions"** at the top, then select **"Instance Settings"** and then **"Attach/Replace IAM Role"**
+1. In the **"IAM role"** dropdown, select the IAM role that you just created
+1. Click **"Apply"**
 1. Repeaat the last four steps for each of the other instances in your EKS or Kubernetes cluster.
 
 
@@ -290,10 +290,10 @@ For each account you want to deploy to, perform the following:
 
 1. Log into the browser-based AWS Console
 1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Roles" on the left hand side
+1. Click on **"Roles"** on the left hand side
 1. Find the Managed Role that you created earlier in this account, and click on the Role Name to edit the role.
-1. Click on the "Trust relationships" tab.
-1. Click on "Edit trust relationship"
+1. Click on the **"Trust relationships"** tab.
+1. Click on **"Edit trust relationship"**
 1. Replace the Policy Document with this (Update the ARN with the node role ARN from "Instance Role Part 4")
 
    ```json
