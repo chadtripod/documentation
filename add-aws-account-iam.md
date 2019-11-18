@@ -144,6 +144,34 @@ Also - we will be granting AWS Power User Access to each of the Managed Account 
 
 If you are running Spinnaker on AWS (either via AWS EKS or installed directly on EC2 instances), you can use AWS IAM roles to allow Clouddriver to interact with the various AWS APIs across multiple AWS Accounts.
 
+### Instance Role Part 1: Creating a Managed Account IAM Role in each your target AWS Account - AWS CLI
+Download JSON Files to be used in Role creation.
+
+PassRole-and-Certification.json
+SpinnakerManagingPolicy.json
+Spinnaker-Trust.json
+
+Create JSON files to be used against Spinnaker Roles
+   ```bash
+   # Create JSON files for Policy 
+aws iam create policy --policy-name PassRole-and-Certificates file://PassRole-and-Certificates.json
+aws iam create policy --policy-name SpinnakerManagingPoilcy file://SpinnakerManagingPoilcy.json
+   ```
+Create AWS Roles for Spinnaker Managing and Managed Accounts
+
+ ```bash
+   # Create JSON files for Policy 
+aws iam create-role --role-name Spinnaker 
+aws iam create-role --role-name SpinnakerManagedRole --assume-role-policy-document file://Spinnaker_Trust.json
+   ```
+Bind AWS Policies to Roles for proper trust
+
+```bash
+   # Create JSON files for Policy 
+aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::[ACCOUNT_ID]:PassRole-and-Certificates.json
+aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::aws:policy/PowerUserAccess"
+   ```
+
 ### Instance Role Part 1: Creating a Managed Account IAM Role in each your target AWS Accounts
 
 In each account that you want Spinnaker to deploy to, you should create an IAM role for Spinnaker to assume.
