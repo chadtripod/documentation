@@ -407,3 +407,5 @@ Once you've added all of the Managed (Target) accounts, run these commands to se
    # Apply changes
    hal deploy apply
    ```
+Next Steps is to tag your AWS Subnets So they are discoverable by Spinnaker.  Those instructions are here.
+https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
