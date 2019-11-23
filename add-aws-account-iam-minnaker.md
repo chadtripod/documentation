@@ -44,7 +44,7 @@ Spinnaker is able to deploy EC2 instances (via ASGs).
   * Run AWS Lambda Actions (alpha/beta as of the time of this document)
   * Create AWS CloudFormation Stacks (alpha/beta as of the time of this document)
 * Clouddriver is configured with direct access to a **"Managing Account"** Policy (_it may be helpful to think of this as the **Master** or **Source** Policy_), which is accomplished on one of two ways:
-  * If Spinnaker is running in AWS (either in AWS EKS, or with Kubernetes nodes running in AWS EC2), the Managing Account Policy can be made available to Spinnaker by adding it to the AWS nodes (EC2 instances) where the Spinnaker Clouddriver pod(s) are running.
+  * If Spinnaker is running in AWS, the Managing Account Policy can be made available to Spinnaker by adding it to the AWS nodes (EC2 instances) where the Spinnaker Clouddriver pod(s) are running.
     * _(You can also use Kube2IAM or similar capabilities, but this is not covered in this document)_
   * An IAM User with access to the Managing Account Policy can be passed directly to Spinnaker via an Access Key and Secret Access Key, configured via Halyard
 * For each AWS account that you want Spinnaker to be able to deploy to, Spinnaker needs a **"Managed Account"** Role in that AWS account, with permissions to do the things you want Spinnaker to be able to do (_it may be helpful to think of this as a **Target Role**_)
@@ -173,7 +173,7 @@ _(This policy could also be attached inline directly to the IAM Instance Role, r
 1. Add any relevant tags.  Click **"Next: Review"**
 1. Give the role a name **"Spinnaker"**. *This role will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  
 1. Navigate to the EC2 page (click on "Services" at the top, then on **"EC2"** under "Compute")
-1. Click on **"Running Instances"**of 
+1. Click on **"Running Instances"** of 
 1. Find one of the Minnaker ec2 instance, and select it.
 1. Click **"Actions"** at the top, then select **"Instance Settings"** and then **"Attach/Replace IAM Role"**
 1. In the **"IAM role"** dropdown, select the IAM role that you just created **"Spinnaker"** Role
