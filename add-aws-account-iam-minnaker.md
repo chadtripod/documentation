@@ -119,6 +119,7 @@ When deploying EC2 instances, Spinnaker currently requires that you attach a rol
 1. Click **"Next: Tags"**
 1. Optionally, add tags if required by your organization.  Then, click **"Next: Review"**.
 1. Specify the Role Name as **"BaseIAMRole"**
+1. Click **"Create Role"**
 
 ### Instance Role Part 3: Creating a Managing Account IAM Policy in your primary AWS Account
 
