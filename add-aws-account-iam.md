@@ -166,8 +166,29 @@ aws iam create-role --role-name SpinnakerManagedRole --assume-role-policy-docume
 Bind AWS Policies to Roles for proper trust
 ```bash
 # Create JSON files for Policy 
-aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::[ACCOUNT_ID]:PassRole-and-Certificates.json
+aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::[YOUR_ACCOUNT_ID]:PassRole-and-Certificates.json
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::aws:policy/PowerUserAccess"
+   ```
+Note - Your Trust Relationship policies and Managing Policy should have your AWS account information.  Example below
+```json
+   {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::[YOUR_ACCOUNT_ID]:role/Spinnaker",
+        "Service": [
+          "ecs-tasks.amazonaws.com",
+          "application-autoscaling.amazonaws.com",
+          "ec2.amazonaws.com",
+          "ecs.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
    ```
 
 ### Instance Role Part 1: Creating a Managed Account IAM Role in each your target AWS Accounts - AWS Console
