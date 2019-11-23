@@ -19,7 +19,7 @@ Once you have (OSS or Armory) Spinnaker up and running in Kubernetes, you'll wan
 
 This document will guide you through the following:
 
-* Understanding AWS deployment from Spinnaker
+* Understanding AWS deployment from Armory Minnaker
 
 * Configuring Spinnaker to access AWS using an IAM User (with an Access Key and Secret Access Key)
   * Creating a Managed Account IAM Role in each your target AWS Accounts
@@ -54,93 +54,11 @@ Spinnaker is able to deploy EC2 instances (via ASGs).
 
 In addition, if you are deploying EC2 instances with AWS, you will need to provide an IAM role for each instance.  If you do not specify a role, Spinnaker will attempt to use a role called `BaseIAMRole`.  So you should create a BaseIAMRole (potentially with no permissions).
 
-### Example
-
-Here's an example situation:
-
-* We would like Spinnaker to deploy to three AWS accounts, with account IDs 111111111111, 222222222222, and 333333333333.  Each of these is a *Managed Account*
-* Choose one account (111111111111), that Spinnaker will log into directly.  This is the *Managing Account*
-* We will end up with four IAM entities:
-  * A *Managing Account Policy* in account 111111111111 (`arn:aws:iam::111111111111:user/managingAccount`)
-  * A *Managed Account Role* in account 111111111111 (`arn:aws:iam::111111111111:role/spinnakerManaged`)
-  * A *Managed Account Role* in account 222222222222 (`arn:aws:iam::222222222222:role/spinnakerManaged`)
-  * A *Managed Account Role* in account 333333333333 (`arn:aws:iam::333333333333:role/spinnakerManaged`)
-* The *Managing Account Policy* needs these:
-  * The `sts:AssumeRole` permission for each of the Managed Account Roles
-  * The `ec2:DescribeAvailabilityZones` permission
-  * The `ec2:DescribeRegions` permission
-  * It should be attached to the IAM Instance Role where Spinnaker is running
-* Each *Managed Account Role* needs these:
-  * **PowerUserAccess**
-  * The `iam:PassRole` permission for roles that will be assigned to EC2 instances that are being deployed
-  * A trust relationship with the IAM Instance Role attached to the EC2 instances where Spinnaker is running (to allow Spinnaker to assume the Managed Account Role)
-
-### Configuration
-
-Here's a sample halconfig `aws` YAML block that supports the above:
-
-```yml
-    aws:
-      enabled: true
-      accounts:
-      - name: aws-1
-        requiredGroupMembership: []
-        providerVersion: V1
-        permissions: {}
-        accountId: '111111111111'
-        regions:
-        - name: us-east-1
-        - name: us-west-2
-        assumeRole: role/spinnakerManaged
-      - name: aws-2
-        requiredGroupMembership: []
-        providerVersion: V1
-        permissions: {}
-        accountId: '222222222222'
-        regions:
-        - name: us-east-1
-        - name: us-west-2
-        assumeRole: role/spinnakerManaged
-      - name: aws-3
-        requiredGroupMembership: []
-        providerVersion: V1
-        permissions: {}
-        accountId: '333333333333'
-        regions:
-        - name: us-east-1
-        - name: us-west-2
-        assumeRole: role/spinnakerManaged
-      # Because we're baking in 111111111111, this must match the accountName that is associated with 111111111111
-      primaryAccount: aws-1
-      bakeryDefaults:
-        templateFile: aws-ebs-shared.json
-        baseImages: []
-        awsAssociatePublicIpAddress: true
-        defaultVirtualizationType: hvm
-      defaultKeyPairTemplate: '{{name}}-keypair'
-      defaultRegions:
-      - name: us-west-2
-      defaults:
-        iamRole: BaseIAMRole
-```
-
-## Prerequisites
-
-This document assumes the following:
-
-* Your Spinnaker is up and running
-* Your Spinnaker was installed and configured via Halyard
-* You have access to Halyard
-* You have permissions to create IAM roles using IAM policies and permissions, in all relevant AWS accounts
-  * You should also be able to set up cross-account trust relationships between IAM roles.
-* If you want to add the IAM Role to Spinnaker via an Access Key/Secret Access Key, you have permissions to create an IAM User
-* If you want to add the IAM Role to Spinnaker via IAM instance profiles/policies, you have permissions to modify the IAM instance
-
 _All configuration with AWS in this document will be handled via the browser-based AWS Console.  All configurations could **alternately** be configured via the `aws` CLI, but this is not currently covered in this document._
 
 Also - we will be granting AWS Power User Access to each of the Managed Account Roles.  You could optionally grant fewer permisisons, but those more limited permissions are not covered in this document.
 
-## Configuring Spinnaker to use AWS IAM Instance Roles
+## Configuring Minnaker to use AWS IAM Instance Roles
 
 If you are running Spinnaker on AWS (either via AWS EKS or installed directly on EC2 instances), you can use AWS IAM roles to allow Clouddriver to interact with the various AWS APIs across multiple AWS Accounts.
 
@@ -151,20 +69,20 @@ In each account that you want Spinnaker to deploy to, you should create an IAM r
 For each account you want to deploy to, perform the following:
 
 1. Log into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
+1. Navigate to the IAM page (click on "Services" at the top, then on **"IAM"** under "Security, Identity, & Compliance")
 1. Click on "Roles" on the left hand side
 1. Click on "Create role"
-1. For now, for the "Choose the service that will use this role", select "EC2".  We will change this later, because we want to specify an explicit consumer of this role later on.
+1. For now, for the "Choose the service that will use this role", select **"EC2"**.  We will change this later, because we want to specify an explicit consumer of this role later on.
 1. Click on "Next: Permissions"
-1. Search for "PowerUserAccess" in the search filter, and select the Policy called "PowerUserAcces"
-1. Click "Next: Tags"
+1. Search for **"PowerUserAccess"** in the search filter, and select the Policy called **"PowerUserAccess"**
+1. Click **"Next: Tags"**
 1. Optionally, add tags that will identify this role.
-1. Click "Next: Review"
-1. Enter a Role Name.  For example, "DevSpinnakerManagedRole".  Optionally, add a description, such as "Allows Spinnaker Dev Cluster to perform actions in this account."
-1. Click "Create Role"
+1. Click **"Next: Review"**
+1. Enter a Role Name.  For example, **"SpinnakerManagedRole"**.  Optionally, add a description, such as "Allows Spinnaker Dev Cluster to perform actions in this account."
+1. Click **"Create Role"**
 1. In the list of Roles, click on your new Role (you may have to scroll down or filter for it).
-1. Click on "Add inline policy" (on the right).
-1. Click on the "JSON" tab, and paste in this:
+1. Click on **"Add inline policy"** blue link (on the right).
+1. Click on the **"JSON"** tab, and paste in this:
 
    ```json
    {
@@ -184,38 +102,33 @@ For each account you want to deploy to, perform the following:
    }
    ```
 
-1. Click "Review Policy"
-1. Call it "PassRole-and-Certificates", and click "Create Policy"
-1. Copy the Role ARN and save it.  It should look something like this: `arn:aws:iam::123456789012:role/DevSpinnakerManagedRole`.  **This will be used in the section "Instance Role Part 3", and in the Halyard section, "Instance Role Part 6"**
-
-You will end up with a Role ARN for each Managed / Target account.  The Role names do not have to be the same (although it is a bit cleaner if they are).  For example, you may end up with roles that look like this:
-
-* `arn:aws:iam::123456789012:role/DevSpinnakerManagedRole`
-* `arn:aws:iam::123456789013:role/DevSpinnakerManagedRole`
-* `arn:aws:iam::123456789014:role/DevSpinnakerManaged`
+1. Click **"Review Policy"**
+1. Call it **"PassRole-and-Certificates"**, and click **"Create Policy"**
+1. Copy the Role ARN and save it.  It should look something like this: 
+`arn:aws:iam::[YOUR_ACCOUNT_ID]:role/SpinnakerManagedRole`.  **This will be used in the section "Instance Role Part 3", and in the Halyard section, "Instance Role Part 6"**
 
 ### Instance Role Part 2: Creating the BaseIAMRole for EC2 instances
 
 When deploying EC2 instances, Spinnaker currently requires that you attach a role for each instance (even if you don't want to grant the instance any special permissions.  If you do not specify an instance role, Spinnaker will default to a role called `BaseIAMRole`, and it will throw an error if this does not exist.  Therefore, you should at a minimum create an empty role called BaseIAMRole.
 
 1. Log into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Roles" on the left side
-1. Click "Create role"
-1. Select "EC2", and click "Next: Permissions"
-1. Click "Next: Tags"
-1. Optionally, add tags if required by your organization.  Then, click "Next: Review".
-1. Specify the Role Name as "BaseIAMRole"
+1. Navigate to the IAM page (click on "Services" at the top, then on **"IAM"** under "Security, Identity, & Compliance")
+1. Click on **"Roles"** on the left side
+1. Click **"Create role"**
+1. Select **"EC2"**, and click **"Next: Permissions"**
+1. Click **"Next: Tags"**
+1. Optionally, add tags if required by your organization.  Then, click **"Next: Review"**.
+1. Specify the Role Name as **"BaseIAMRole"**
 
 ### Instance Role Part 3: Creating a Managing Account IAM Policy in your primary AWS Account
 
 In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS cluster where Spinnaker is installed), create an IAM Policy with permissions to assume all of your Managed Roles.
 
 1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Policies" on the left hand side
-1. Click on "Create Policy"
-1. Click on the "JSON" tab, and paste in this:
+1. Navigate to the IAM page (click on "Services" at the top, then on **"IAM"** under "Security, Identity, & Compliance")
+1. Click on **"Policies"** on the left hand side
+1. Click on **"Create Policy"**
+1. Click on the **"JSON"** tab, and paste in this:
 
    ```json
    {
@@ -234,9 +147,7 @@ In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS 
            {
                "Action": "sts:AssumeRole",
                "Resource": [
-                   "arn:aws:iam::123456789012:role/DevSpinnakerManagedRole",
-                   "arn:aws:iam::123456789013:role/spinnakerManaged",
-                   "arn:aws:iam::123456789014:role/DevSpinnakerManaged"
+                   "arn:aws:iam::[YOUR_ACCOUNT_ID]:role/SpinnakerManagedRole"
                ],
                "Effect": "Allow"
            }
@@ -244,56 +155,41 @@ In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS 
    }
    ```
 
-1. Update the `sts:AssumeRole` block with the list of Managed Roles you created in **Instance Role Part 1**.
-1. Click on "Review Policy"
-1. Create a name for your policy, such as "SpinnakerManagingPolicy".  *This policy will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the policy.  **This will be used in the next section, "Instance Role Part 4"**
+1. Update the `sts:AssumeRole` block with the list of Managed Roles you created in **Instance Role Part 1**. i.e. `arn:aws:iam::[YOUR_ACCOUNT_ID]:role/SpinnakerManagedRole`
+1. Click on **"Review Policy"**
+1. Create a name for your policy, such as **"SpinnakerManagingPolicy"**.  *This policy will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the policy.  **This will be used in the next section, "Instance Role Part 4"**
 1. On the list policies, click your newly-created Policy.
 
 _(This policy could also be attached inline directly to the IAM Instance Role, rather than creating a standalone policy)_
 
-### Instance Role Part 4: Adding the Managing Account IAM Policy to the existing IAM Instance Role on the AWS nodes
+### Instance Role Part 4: Adding the Managing Account IAM Policy to Minnaker ec2 instance
 
 1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
-1. Navigate to the EC2 page (click on "Services" at the top, then on "EC2" under "Compute")
-1. Click on "Running Instances"
-1. Find one of the nodes which is part of your EKS or other Kubernetes cluster, and select it.
-1. In the Instance details section of the screen (in the lower half), find the "IAM Role" and click on it to go to the Role page.
-1. Click on "Attach Policies"
-1. Search for the Policy that you created, and select it.
-1. Click "Attach Policy"
-1. Back on the screen for the Role, copy the node role ARN.  It should look something like this: `arn:aws:iam::123456789010:role/node-role`.  **This will be used in the next section, "Instance Role Part 5"**
-
-Note: If your instances do not have an IAM instance profile and role attached to them, you can follow these steps to create and attach one:
-
-1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance"
-1. Click on "Roles"
-1. Click on "Create role"
-1. Select "EC2" for the service that will use the role, and click "Next: Permissions"
-1. In the policy filter, enter the name of the managing policy you created in step 3.  Click "Next: Tags"
-1. Add any relevant tags.  Click "Next: Review"
-1. Give the role a name, such as "Spinnaker". *This role will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  Optionally, add a descriptive description.  Copy the name of the role.
-1. Navigate to the EC2 page (click on "Services" at the top, then on "EC2" under "Compute")
-1. Click on "Running Instances"
-1. Find one of the nodes which is part of your EKS or other Kubernetes cluster, and select it.
-1. Click "Actions" at the top, then select "Instance Settings" and then "Attach/Replace IAM Role"
-1. In the "IAM role" dropdown, select the IAM role that you just created
-1. Click "Apply"
-1. Repeaat the last four steps for each of the other instances in your EKS or Kubernetes cluster.
+1. Navigate to the IAM page (click on "Services" at the top, then on **"IAM"** under "Security, Identity, & Compliance"
+1. Click on **"Roles"**
+1. Click on **"Create role"**
+1. Select **"EC2"** for the service that will use the role, and click **"Next: Permissions"**
+1. In the policy filter, enter the name of the managing policy you created in step 3.  Click **"Next: Tags"**
+1. Add any relevant tags.  Click **"Next: Review"**
+1. Give the role a name **"Spinnaker"**. *This role will be attached to your Spinnaker instance, so give it a name describing your Spinnaker instance.*  
+1. Navigate to the EC2 page (click on "Services" at the top, then on **"EC2"** under "Compute")
+1. Click on **"Running Instances"**of 
+1. Find one of the Minnaker ec2 instance, and select it.
+1. Click **"Actions"** at the top, then select **"Instance Settings"** and then **"Attach/Replace IAM Role"**
+1. In the **"IAM role"** dropdown, select the IAM role that you just created **"Spinnaker"** Role
+1. Click **"Apply"**
 
 
-### Instance Role Part 5: Configuring the Managed Accounts IAM Roles to trust the IAM Instance Role from the AWS nodes
+### Instance Role Part 5: Configuring the Managed Accounts IAM Roles to trust the IAM Instance Role from the Minnaker Instance
 
-Now that we know what role will be assuming each of the Managed Roles, we must configure the Managed Roles (Target Roles) to trust and allow the Managing (Assuming) Role to assume them.  This is called a "Trust Relationship" and is configured each of the Managed Roles (Target Roles).
-
-For each account you want to deploy to, perform the following:
+Now that we know what role will be assuming each of the Managed Roles, we must configure the Managed Roles (Target Roles) to trust and allow the Managing (Assuming) Role to assume them.  This is called a **"Trust Relationship"** and is configured each of the Managed Roles (Target Roles).
 
 1. Log into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
-1. Click on "Roles" on the left hand side
-1. Find the Managed Role that you created earlier in this account, and click on the Role Name to edit the role.
-1. Click on the "Trust relationships" tab.
-1. Click on "Edit trust relationship"
+1. Navigate to the IAM page (click on "Services" at the top, then on **"IAM"** under "Security, Identity, & Compliance")
+1. Click on **"Roles"** on the left hand side
+1. Find the Managed Role that you created earlier in this account **"SpinnakerManagedRole"**, and click on the Role Name to edit the role.
+1. Click on the **"Trust relationships"** tab.
+1. Click on **"Edit trust relationship"**
 1. Replace the Policy Document with this (Update the ARN with the node role ARN from "Instance Role Part 4")
 
    ```json
@@ -304,7 +200,7 @@ For each account you want to deploy to, perform the following:
          "Effect": "Allow",
          "Principal": {
            "AWS": [
-             "arn:aws:iam::123456789010:role/node-role"
+             "arn:aws:iam::[YOUR_ACCOUNT_ID]:role/Spinnaker"
            ]
          },
          "Action": "sts:AssumeRole"
@@ -313,7 +209,7 @@ For each account you want to deploy to, perform the following:
    }
    ```
 
-8. Click "Update Trust Policy", in the bottom right.
+8. Click **"Update Trust Policy"**, in the bottom right.
 
 ### Instance Role Part 6: Adding the Managed Accounts to Spinnaker via Halyard
 
@@ -327,21 +223,15 @@ For each of the Managed (Target) accounts you want to deploy to, perform the fol
    * `ROLE_NAME` should be the full role name within the account, including the type of  object (`role`).  For example, if the role ARN is `arn:aws:iam::123456789012:role/ DevSpinnakerManagedRole`, then ROLE_NAME would be `role/DevSpinnakerManagedRole`
  
    ```bash
-   # Enter the account name you want Spinnaker to use to identify the deployment target,  the account ID, and the role name.
-   export AWS_ACCOUNT_NAME=aws-dev-1
-   export ACCOUNT_ID=123456789012
-   export ROLE_NAME=role/DevSpinnakerManagedRole
+   # Enter the account name you want Spinnaker to use to identify the deployment target,  the account ID, and the role name.  The name will be represented in Spinnaker UI and should be descriptive.  Below is an example you should customize.
+   export AWS_ACCOUNT_NAME=aws-account-env-target
+   export ACCOUNT_ID=[YOUR_ACCOUNT_ID]
+   export ROLE_NAME=role/SpinnakerManagedRole
  
+   #Add AWS account to Halyard with 
    hal config provider aws account add ${AWS_ACCOUNT_NAME} \
        --account-id ${ACCOUNT_ID} \
-       --assume-role ${ROLE_NAME}
-   ```
-
-1. Optionally, edit the account with additional options such as those indicated in the [halyard documentation](https://www.spinnaker.io/reference/halyard/commands/#hal-config-provider-aws-account-edit).  For example, to set the regions that you can deploy to:
-
-   ```bash
-   export AWS_ACCOUNT_NAME=aws-dev-1
-   hal config provider aws account edit ${AWS_ACCOUNT_NAME} \
+       --assume-role ${ROLE_NAME} \
        --regions us-east-1,us-west-2
    ```
 
