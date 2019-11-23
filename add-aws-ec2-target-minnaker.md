@@ -24,6 +24,7 @@ This document will guide you through the following:
 * Configure Armory Minnaker to bake and deploy ec2 instances into AWS
 
 * Configuring Minnaker to have proper authroization to deploy ec2 using AWS Provider
+  * Add ec2 capabilities to the SpinnakerManagedRole
   * Enable AWS subnets to be discoverable by Spinnaker
   * Enable ec2 inside of test application
   * Change Spinnaker ec2 healthcheck to leverage AWS native healthchecks
