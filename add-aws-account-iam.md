@@ -136,7 +136,7 @@ This document assumes the following:
 * If you want to add the IAM Role to Spinnaker via an Access Key/Secret Access Key, you have permissions to create an IAM User
 * If you want to add the IAM Role to Spinnaker via IAM instance profiles/policies, you have permissions to modify the IAM instance
 
-_All configuration with AWS in this document will be handled via the browser-based AWS Console.  All configurations could **alternately** be configured via the `aws` CLI, but this is not currently covered in this document._
+_All configuration with AWS in this document will be handled via the browser-based AWS Console.  All configurations could **alternately** be configured via the `aws` CLI._
 
 Also - we will be granting AWS Power User Access to each of the Managed Account Roles.  You could optionally grant fewer permisisons, but those more limited permissions are not covered in this document.
 
@@ -169,7 +169,7 @@ Bind AWS Policies to Roles for proper trust
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::[YOUR_ACCOUNT_ID]:PassRole-and-Certificates.json
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::aws:policy/PowerUserAccess"
    ```
-Note - Your Trust Relationship policies and Managing Policy should have your AWS account information.  Example below
+Note - Your Trust Relationship policies and Managing Policy should have your AWS account information.  Example below is trust policy on the Mangaged Policy assumed by Managed Policy.
 ```json
    {
   "Version": "2012-10-17",
