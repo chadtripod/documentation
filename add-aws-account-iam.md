@@ -17,6 +17,11 @@ Once you have (OSS or Armory) Spinnaker up and running in Kubernetes, you'll wan
 
 ## Overview
 
+```image
+
+    
+```
+
 This document will guide you through the following:
 
 * Understanding AWS deployment from Spinnaker
