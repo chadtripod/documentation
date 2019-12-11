@@ -83,7 +83,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 
 Validation Step to assure Roles are configured correctly
 
-1. aws sts get-caller-identity
+1. aws sts get-caller-identity --classic
 
 2. aws sts assume-role --role-arn <role> --role-session-name test
 
