@@ -122,7 +122,7 @@ Note purpose should be left and the subnet identifier should replace "example-pu
 
 11. Set healthcare from load balancer healthcheck to AWS native healthcheck
 
-### Connect Spinnaker to EKS cluster for deployment.  This should be done on a workstation other than the Minnaker Instance.  This workstations should have access to the EKS cluster.
+### Connect Spinnaker to EKS cluster ###
 
 ## Prerequisities
 
