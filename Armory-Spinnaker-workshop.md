@@ -15,6 +15,7 @@ Create 2 AWS Roles
 
 3. PassRole-and-Certificate.json (inline policy for SpinnakerManagedRole)
 
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -30,11 +31,13 @@ Create 2 AWS Roles
         }
     ]
 }
+```
 
 4. SpinnakerManagedRole -> Trust relationship
 
-#### Now SpinnakerManagedRole must have Trust relationship with SpinnakerManagingRole ####
+#### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
 
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -53,9 +56,11 @@ Create 2 AWS Roles
     }
   ]
 }
+```
 
 5. BaseIAM-PassRole (Create as inline policy on Spinnaker IAM Role)
 
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -78,8 +83,7 @@ Create 2 AWS Roles
         }
     ]
 }
-
-
+```
 
 Validation Step to assure Roles are configured correctly
 
@@ -87,9 +91,9 @@ Validation Step to assure Roles are configured correctly
 
 2. aws sts assume-role --role-arn <role> --role-session-name test
 
-6. Adding AWS Role to Spinnaker through Halyard configuration.  Note AWS account name is within Spinnaker and will appear in UI
+### Adding AWS Role to Spinnaker through Halyard configuration.  Note AWS account name is within Spinnaker and will appear in UI ###
 
-*NOTE* you must configure the regions that Spinnaker can deploy in
+*NOTE* you MUST configure the regions that Spinnaker can deploy in
 
 export AWS_ACCOUNT_NAME=aws-dev-1
 export ACCOUNT_ID=795692138404
@@ -104,6 +108,8 @@ hal config provider aws account add ${AWS_ACCOUNT_NAME} \
 
 8. hal deploy apply
 
+### Extra Steps in Spinnaker to tag deployment subnets ###
+
 9. AWS Subnet tagging if tags do not show up.
 
 https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
@@ -112,7 +118,7 @@ immutable_metadata={"purpose":"example-purpose"}
 
 Note purpose should be left and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI
 
-10. Enable on per Application ec2 and ECS 
+### Enable on per Application ec2 and ECS ###
 
 11. Set healthcare from load balancer healthcheck to AWS native healthcheck
 
@@ -124,4 +130,4 @@ From workstation run "kubectl get ns"
 
 2. see github 
 
-### Create first pipelines for ec2 / ECS / EKS
+### Create first pipelines for ec2 / ECS / EKS ###
