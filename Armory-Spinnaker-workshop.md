@@ -91,9 +91,9 @@ Validation Step to assure Roles are configured correctly
 
 *NOTE* you MUST configure the regions that Spinnaker can deploy in
 
-export AWS_ACCOUNT_NAME=aws-dev-1
-export ACCOUNT_ID=795692138404
-export ROLE_NAME=role/Spinnaker-Managed-Role
+export AWS_ACCOUNT_NAME=aws-dev-1 \
+export ACCOUNT_ID=795692138404 \
+export ROLE_NAME=role/Spinnaker-Managed-Role \
  
 hal config provider aws account add ${AWS_ACCOUNT_NAME} \
     --account-id ${ACCOUNT_ID} \
