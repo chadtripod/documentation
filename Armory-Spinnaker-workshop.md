@@ -4,11 +4,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 
 # Armory Spinnaker AWS starter pack
 
-AWS Prep for Spinnaker 
-
-SpinnakerManagedRole - Configuration
-
-Create 2 AWS Roles
+### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
 1. Spinnaker-Managed-Role
 2. Spinnaker-Managing-Role
