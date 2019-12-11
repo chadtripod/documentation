@@ -1,6 +1,6 @@
-Do a Search and Replace for all occrances of 795692138404 with your actual aws account value
+Do a Search and Replace for all occrances of [YOUR_AWS_ACCOUNT_ID] with your actual aws account value
 
-AWS Account numbrer = 795692138404 (Use this value to replace 795692138404)
+AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_ID])
 
 # Armory Spinnaker AWS starter pack
 
