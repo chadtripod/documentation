@@ -114,6 +114,12 @@ immutable_metadata={"purpose":"example-purpose"}
 
 Note purpose should be left and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI
 
+### Login to the Spinnaker UI.  If you forgot your password you can retreieve it from your Minnaker Instance by SSH'ing in and running the command below.
+
+```code
+cat /etc/spinnaker/.hal/.secret/spinnaker_password
+```
+
 ### Enable on per Application ec2 and ECS ###
 
 11. Set healthcare from load balancer healthcheck to AWS native healthcheck
