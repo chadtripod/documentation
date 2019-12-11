@@ -9,7 +9,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 1. Spinnaker-Managed-Role
 2. Spinnaker-Managing-Role
 
-3. PassRole-and-Certificate.json (inline policy for SpinnakerManagedRole)
+3. "PassRole-and-Certificate" (inline policy for Spinnaker-Managed-Role)
 
 ```json
 {
@@ -29,7 +29,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 }
 ```
 
-4. SpinnakerManagedRole -> Trust relationship
+4. Spinnaker-Managed-Role -> Trust relationship
 
 #### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
 
@@ -54,7 +54,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 }
 ```
 
-5. BaseIAM-PassRole (Create as inline policy on Spinnaker IAM Role)
+5. "BaseIAM-PassRole" (Create as inline policy on Spinnaker IAM Role)
 
 ```json
 {
