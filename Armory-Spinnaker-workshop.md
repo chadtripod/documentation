@@ -106,7 +106,7 @@ hal config provider aws account add ${AWS_ACCOUNT_NAME} \
 
 ### Extra Steps in Spinnaker to tag deployment subnets ###
 
-9. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI.
+9. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
 
 https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
 
