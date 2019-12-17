@@ -83,7 +83,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 }
 ```
 
-Validation Step to assure Roles are configured correctly
+Validation Step to assure Roles are configured correctly (You man need to install AWS CLI which can be download to Minnaker)
 
 1. aws sts get-caller-identity --classic
 
