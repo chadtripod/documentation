@@ -6,10 +6,12 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 
 ### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
-1. Spinnaker-Managed-Role
-2. Spinnaker-Managing-Role
+1. Create - "Spinnaker-Managed-Role"
+2. Create - "Spinnaker-Managing-Role"
 
-3. "PassRole-and-Certificate" (inline policy for Spinnaker-Managed-Role)
+3. Bind "PowerUserAccess" to "Spinnaker-Managed-Role"
+
+4. "PassRole-and-Certificate" (inline policy for Spinnaker-Managed-Role)
 
 ```json
 {
@@ -29,7 +31,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 }
 ```
 
-4. Spinnaker-Managed-Role -> Trust relationship
+5. Spinnaker-Managed-Role -> Trust relationship
 
 #### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
 
@@ -54,7 +56,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
 }
 ```
 
-5. "BaseIAM-PassRole" (Create as inline policy on Spinnaker IAM Role)
+6. "BaseIAM-PassRole" (Create as inline policy on Spinnaker IAM Role)
 
 ```json
 {
