@@ -271,29 +271,27 @@ In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS 
 
    ```json
    {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": [
-                   "ec2:DescribeAvailabilityZones",
-                   "ec2:DescribeRegions"
-               ],
-               "Resource": [
-                   "*"
-               ]
-           },
-           {
-               "Action": "sts:AssumeRole",
-               "Resource": [
-                   "arn:aws:iam::123456789012:role/DevSpinnakerManagedRole",
-                   "arn:aws:iam::123456789013:role/spinnakerManaged",
-                   "arn:aws:iam::123456789014:role/DevSpinnakerManaged"
-               ],
-               "Effect": "Allow"
-           }
-       ]
-   }
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeRegions"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Action": "sts:AssumeRole",
+            "Resource": [
+                "arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/SpinnakerManagedRole"
+            ],
+            "Effect": "Allow"
+        }
+    ]
+}
    ```
 
 1. Update the `sts:AssumeRole` block with the list of Managed Roles you created in **Instance Role Part 1**.
