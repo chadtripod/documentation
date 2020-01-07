@@ -174,7 +174,7 @@ Bind AWS Policies to Roles for proper trust
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::[YOUR_ACCOUNT_ID]:PassRole-and-Certificates.json
 aws iam attach-role-policy --role-name SpinnakerManagedRole --policy-arn "arn:aws:iam::aws:policy/PowerUserAccess"
    ```
-Note - Your Trust Relationship policies and Managing Policy should have your AWS account information.  Example below is trust policy on the Mangaged Policy assumed by Managed Policy.
+Note - Your Trust Relationship policies and Managing Policy should have your AWS account information.  Example below is trust policy on the ***Mangaging Policy*** assumed by ***Managed Policy***.
 ```json
    {
   "Version": "2012-10-17",
