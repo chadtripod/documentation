@@ -251,7 +251,7 @@ You will end up with a Role ARN for each Managed / Target account.  The Role nam
 When deploying EC2 instances, Spinnaker currently requires that you attach a role for each instance (even if you don't want to grant the instance any special permissions.  If you do not specify an instance role, Spinnaker will default to a role called `BaseIAMRole`, and it will throw an error if this does not exist.  Therefore, you should at a minimum create an empty role called BaseIAMRole.
 
 1. Log into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
+1. Navigate to the IAM page (click on **"Services"** at the top, then on **"IAM"** under **"Security, Identity, & Compliance"**)
 1. Click on **"Roles"** on the left side
 1. Click **"Create role"**
 1. Select **"EC2"**, and click **"Next: Permissions"**
@@ -264,7 +264,7 @@ When deploying EC2 instances, Spinnaker currently requires that you attach a rol
 In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS cluster where Spinnaker is installed), create an IAM Policy with permissions to assume all of your Managed Roles.
 
 1. Log into the AWS account where Spinnaker lives, into the browser-based AWS Console
-1. Navigate to the IAM page (click on "Services" at the top, then on "IAM" under "Security, Identity, & Compliance")
+1. Navigate to the IAM page (click on **"Services"** at the top, then on **"IAM"** under **"Security, Identity, & Compliance"**)
 1. Click on **"Policies"** on the left hand side
 1. Click on **"Create Policy"**
 1. Click on the **"JSON"** tab, and paste in this:
