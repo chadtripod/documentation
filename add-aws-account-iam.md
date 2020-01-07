@@ -141,7 +141,7 @@ This document assumes the following:
 * If you want to add the IAM Role to Spinnaker via an Access Key/Secret Access Key, you have permissions to create an IAM User
 * If you want to add the IAM Role to Spinnaker via IAM instance profiles/policies, you have permissions to modify the IAM instance
 
-_All configuration with AWS in this document will be handled via the browser-based AWS Console.  All configurations could **alternately** be configured via the `aws` CLI._
+_All configuration with AWS in this document will be handled via the browser-based AWS Console.  All configurations could **alternately** be configured via the `aws` CLI (See Below for those Instructions)._
 
 Also - we will be granting AWS Power User Access to each of the Managed Account Roles.  You could optionally grant fewer permisisons, but those more limited permissions are not covered in this document.
 
