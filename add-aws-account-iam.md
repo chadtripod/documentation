@@ -287,7 +287,7 @@ In the account that Spinnaker lives in (i.e., the AWS account that owns the EKS 
             "Action": "sts:AssumeRole",
             "Resource": [
                 "arn:aws:iam::123456789012:role/DevSpinnakerManagedRole",
-                ""arn:aws:iam::123456789013:role/spinnakerManaged"",
+                "arn:aws:iam::123456789013:role/spinnakerManaged",
                 "arn:aws:iam::123456789014:role/DevSpinnakerManaged"
             ],
             "Effect": "Allow"
