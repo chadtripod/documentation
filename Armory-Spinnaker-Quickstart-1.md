@@ -2,7 +2,7 @@ Do a Search and Replace for all occrances of [YOUR_AWS_ACCOUNT_ID] with your act
 
 AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_ID])
 
-# Armory Spinnaker AWS Quickstart - Step 1
+# Armory Spinnaker AWS Quickstart - Step 1 (Prep AWS with Roles, Permissions, and Trust to allow deployments)
 
 ### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
