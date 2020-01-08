@@ -42,7 +42,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::795692138404:role/Spinnaker-Managing-Role",
+        "AWS": "arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managing-Role",
         "Service": [
           "ecs.amazonaws.com",
           "application-autoscaling.amazonaws.com",
@@ -75,7 +75,7 @@ AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_
         {
             "Action": "sts:AssumeRole",
             "Resource": [
-                "arn:aws:iam::795692138404:role/DevSpinnakerManagedRole"
+                "arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/DevSpinnakerManagedRole"
             ],
             "Effect": "Allow"
         }
@@ -88,30 +88,6 @@ Validation Step to assure Roles are configured correctly (You man need to instal
 1. aws sts get-caller-identity --classic
 
 2. aws sts assume-role --role-arn <role> --role-session-name test
-
-### Extra Steps in Spinnaker to tag deployment subnets ###
-
-9. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
-
-https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
-
-```code
-immutable_metadata={"purpose":"example-purpose"}
-```
-
-***Note*** purpose should be left and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. i.e. immutable_metadata={"purpose":"us-west-2-dev-subnet"}
-
-### Login to the Spinnaker UI.  If you forgot your password you can retreieve it from your Minnaker Instance by SSH'ing in and running the command below.
-
-```code
-cat /etc/spinnaker/.hal/.secret/spinnaker_password
-```
-
-### Enable on per Application ec2 and ECS ###
-
-11. Set healthcare from load balancer healthcheck to AWS native healthcheck
-
-### Connect Spinnaker to EKS cluster ###
 
 ## Prerequisities
 
