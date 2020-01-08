@@ -28,6 +28,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
         }
     ]
 }
+```
 
 4. Create - **"Spinnaker-Managing-Role"**
 
