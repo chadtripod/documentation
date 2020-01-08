@@ -90,8 +90,8 @@ Validation Step to assure Roles are configured correctly
 
 1. Download aws cli 
 
-ubuntu:~$ **sudo snap install aws-cli --classic**
-aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
+    ubuntu:~$ **sudo snap install aws-cli --classic**
+    aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
 
 1. aws sts get-caller-identity 
 
