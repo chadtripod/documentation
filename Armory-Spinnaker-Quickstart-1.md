@@ -1,6 +1,6 @@
 Do a Search and Replace for all occrances of [YOUR_AWS_ACCOUNT_ID] with your actual aws account value
 
-AWS Account numbrer = 795692138404 (Use this value to replace [YOUR_AWS_ACCOUNT_ID])
+AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID])
 
 # Armory Spinnaker AWS Quickstart - Step 1 (Prep AWS with Roles, Permissions, and Trust to allow deployments)
 
