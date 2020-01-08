@@ -4,9 +4,9 @@
 
 The Spinnaker AWS Provider natively deploys to 
 
-- ec2
-- ECS
+- EC2
 - EKS
+- ECS
 - Fargate
 - Lambda
 
