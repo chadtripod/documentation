@@ -1,3 +1,5 @@
+# Armory Spinnaker AWS Quickstart - Step 2 (configure Spinnaker AWS Provider to deploy Applications)
+
 ### Adding AWS Role to Spinnaker through Halyard configuration.  Note AWS account name is within Spinnaker and will appear in UI ###
 
 *NOTE* you MUST configure the regions that Spinnaker can deploy in
