@@ -89,23 +89,6 @@ Validation Step to assure Roles are configured correctly (You man need to instal
 
 2. aws sts assume-role --role-arn <role> --role-session-name test
 
-### Adding AWS Role to Spinnaker through Halyard configuration.  Note AWS account name is within Spinnaker and will appear in UI ###
-
-*NOTE* you MUST configure the regions that Spinnaker can deploy in
-
-export AWS_ACCOUNT_NAME=aws-dev-1 \
-export ACCOUNT_ID=795692138404 \
-export ROLE_NAME=role/Spinnaker-Managed-Role
- 
-hal config provider aws account add ${AWS_ACCOUNT_NAME} \
-    --account-id ${ACCOUNT_ID} \
-    --assume-role ${ROLE_NAME} \
-    --regions us-east-1,us-west-2
-
-7. hal config provider aws enable
-
-8. hal deploy apply
-
 ### Extra Steps in Spinnaker to tag deployment subnets ###
 
 9. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
