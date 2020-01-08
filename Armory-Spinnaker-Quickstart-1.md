@@ -84,11 +84,27 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 }
 ```
 
-Validation Step to assure Roles are configured correctly (You man need to install AWS CLI which can be download to Minnaker)
+Validation Step to assure Roles are configured correctly 
 
-1. aws sts get-caller-identity --classic
+## Login to your Minnaker ec2 Instance with SSH     
 
-2. aws sts assume-role --role-arn <role> --role-session-name test
+1. Download aws cli 
+
+ubuntu@ip-172-31-22-182:~$ **sudo snap install aws-cli --classic**
+aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
+
+1. aws sts get-caller-identity 
+
+    ubuntu@ip-172-31-22-182:~$ **aws sts get-caller-identity**
+{
+    "UserId": "AROA3SQXSP6SAJ2ACHF4S:i-0e831b3597893f355",
+    "Account": "795692138404",
+    "Arn": "arn:aws:sts::795692138404:assumed-role/Spinnaker-Managing-Role/i-0e831b3597893f355"
+}
+
+2. aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
+
+
 
 ## Prerequisities
 
