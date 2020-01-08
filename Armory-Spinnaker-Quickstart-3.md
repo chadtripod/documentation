@@ -2,10 +2,23 @@
 
 ### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
-1. Create - "Spinnaker-Managed-Role"
-2. Create - "Spinnaker-Managing-Role"
+The Spinnaker AWS Provider natively deploys to 
 
-3. Bind "PowerUserAccess" to "Spinnaker-Managed-Role"
+- ec2
+- ECS
+- EKS
+- Fargate
+- Lambda
+
+This exercise will setup a ec2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
+
+
+1. ec2 Pipeline and deployment
+
+2. EKS deployment 
+
+
+
 
 4. "PassRole-and-Certificate" (inline policy for Spinnaker-Managed-Role)
 
