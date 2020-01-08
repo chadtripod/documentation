@@ -58,7 +58,6 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
     ]
 }
 ```
-```
 
 6. Spinnaker-Managed-Role -> Trust relationship
 
