@@ -6,12 +6,12 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 ### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
-1. Create - "Spinnaker-Managed-Role"
-2. Create - "Spinnaker-Managing-Role"
+1. Create - **"Spinnaker-Managed-Role"**
+2. Create - **"Spinnaker-Managing-Role"**
 
-3. Bind "PowerUserAccess" to "Spinnaker-Managed-Role"
+3. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
 
-4. "PassRole-and-Certificate" (inline policy for Spinnaker-Managed-Role)
+4. **"PassRole-and-Certificate"** (inline policy for Spinnaker-Managed-Role)
 
 ```json
 {
@@ -56,7 +56,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 }
 ```
 
-6. "BaseIAM-PassRole" (Create as inline policy on Spinnaker IAM Role)
+6. **"BaseIAM-PassRole"** (Create as inline policy on Spinnaker IAM Role)
 
 ```json
 {
