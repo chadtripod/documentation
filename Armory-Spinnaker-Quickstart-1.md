@@ -7,11 +7,10 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 ### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
 1. Create - **"Spinnaker-Managed-Role"**
-2. Create - **"Spinnaker-Managing-Role"**
 
-3. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
+2. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
 
-4. **"PassRole-and-Certificate"** (inline policy for Spinnaker-Managed-Role)
+3. **"PassRole-and-Certificate"** (inline policy for Spinnaker-Managed-Role)
 
 ```json
 {
@@ -29,34 +28,10 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
         }
     ]
 }
-```
 
-5. Spinnaker-Managed-Role -> Trust relationship
+4. Create - **"Spinnaker-Managing-Role"**
 
-#### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managing-Role",
-        "Service": [
-          "ecs.amazonaws.com",
-          "application-autoscaling.amazonaws.com",
-          "ecs-tasks.amazonaws.com",
-          "ec2.amazonaws.com"
-        ]
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-```
-
-6. **"BaseIAM-PassRole"** (Create as inline policy on Spinnaker IAM Role)
+5. **"BaseIAM-PassRole"** (Create as inline policy on Spinnaker IAM Role)
 
 ```json
 {
@@ -80,6 +55,32 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
             "Effect": "Allow"
         }
     ]
+}
+```
+```
+
+6. Spinnaker-Managed-Role -> Trust relationship
+
+#### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managing-Role",
+        "Service": [
+          "ecs.amazonaws.com",
+          "application-autoscaling.amazonaws.com",
+          "ecs-tasks.amazonaws.com",
+          "ec2.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
 }
 ```
 
