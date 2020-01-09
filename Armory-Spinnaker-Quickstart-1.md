@@ -95,7 +95,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 2. aws sts get-caller-identity 
 
-# Output shoult look like this:
+Output shoult look like this:
 ```code
     ubuntu:~$ **aws sts get-caller-identity**
 {
@@ -106,7 +106,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 ```
 3. aws sts assume-role --role-arn [ROLE_ARN] --role-session-name test
 
-# Output should look like this:
+Output should look like this:
 ```code
     ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::795692138404:role/Spinnaker-Managed-Role --role-session-name test
 {
