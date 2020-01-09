@@ -39,7 +39,7 @@ cat /etc/spinnaker/.hal/.secret/spinnaker_password
 
 11. Set healthcare from load balancer healthcheck to AWS native healthcheck
 
-### Connect Spinnaker to EKS cluster (repeat this process if you would like more service accounts for other Kubernetes Clusters)###
+### Connect Spinnaker to EKS cluster
 
 ## Prerequisities
 
@@ -111,3 +111,6 @@ Run this command to apply your changes to Spinnaker:
 ```bash
 hal deploy apply --wait-for-completion
 ```
+
+## Congratulations!  
+You have configured the AWS Provider and Kubernetes Account for EKS.  You can now deploy to EC2, ECS, Fargate, and EKS.  Lets build some pipelines in Step 3 (Your final step) here.
