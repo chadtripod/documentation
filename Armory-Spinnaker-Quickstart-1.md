@@ -84,7 +84,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 }
 ```
 
-Validation Step to assure Roles are configured correctly 
+### Validation Step to assure Roles are configured correctly 
 
 ## Login to your Minnaker EC2 Instance with SSH     
 
@@ -93,7 +93,7 @@ Validation Step to assure Roles are configured correctly
     ubuntu:~$ **sudo snap install aws-cli --classic**
     aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
 
-1. aws sts get-caller-identity 
+2. aws sts get-caller-identity 
 
 # Output shoult look like this:
     ubuntu:~$ **aws sts get-caller-identity**
@@ -103,7 +103,7 @@ Validation Step to assure Roles are configured correctly
     "Arn": "arn:aws:sts::795692138404:assumed-role/Spinnaker-Managing-Role/i-0e831b3597893f355"
 }
 
-2. aws sts assume-role --role-arn [ROLE_ARN] --role-session-name test
+3. aws sts assume-role --role-arn [ROLE_ARN] --role-session-name test
 
 # Output should look like this:
     ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::795692138404:role/Spinnaker-Managed-Role --role-session-name test
@@ -121,4 +121,5 @@ Validation Step to assure Roles are configured correctly
 }
 ubuntu@:~$
 
+### Congratulations! 
 You have completed the 2nd step in setting up the Spinnaker AWS Provider.  For Step 3 Please go Here.
