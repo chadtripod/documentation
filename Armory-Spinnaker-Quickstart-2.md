@@ -113,4 +113,4 @@ hal deploy apply --wait-for-completion
 ```
 
 ## Congratulations!  
-You have configured the AWS Provider and Kubernetes Account for EKS.  You can now deploy to EC2, ECS, Fargate, and EKS.  Lets build some pipelines in Step 3 (Your final step) here.
+You have configured the Spinnaker AWS Provider and Kubernetes Account for EKS.  You can now deploy to EC2, ECS, Fargate, and EKS.  Lets build some pipelines in Step 3 (Your final step) here.
