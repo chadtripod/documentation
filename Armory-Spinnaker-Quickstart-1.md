@@ -96,16 +96,18 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 2. aws sts get-caller-identity 
 
 # Output shoult look like this:
+```code
     ubuntu:~$ **aws sts get-caller-identity**
 {
     "UserId": "AROA3SQXSP6SAJ2ACHF4S:i-0e831b3597893f355",
     "Account": "795692138404",
     "Arn": "arn:aws:sts::795692138404:assumed-role/Spinnaker-Managing-Role/i-0e831b3597893f355"
 }
-
+```
 3. aws sts assume-role --role-arn [ROLE_ARN] --role-session-name test
 
 # Output should look like this:
+```code
     ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::795692138404:role/Spinnaker-Managed-Role --role-session-name test
 {
     "Credentials": {
@@ -120,6 +122,6 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
     }
 }
 ubuntu@:~$
-
+```
 ### Congratulations! 
 You have completed the 2nd step in setting up the Spinnaker AWS Provider.  For Step 3 Please go Here.
