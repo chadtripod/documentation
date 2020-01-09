@@ -6,9 +6,13 @@
 
 The Account name is arbitrary and should be a name that is an identifiable.  The Name will become visable in Spinnaker UI.  The example account here is "aws-dev-1".
 
+1. Set Variables for halyard command.
+
 export AWS_ACCOUNT_NAME=aws-dev-1 \
 export ACCOUNT_ID=[YOUR_ACCOUNT_ID] \
 export ROLE_NAME=role/Spinnaker-Managed-Role
+
+2. Run Halyard command to configure AWS Provider with an Account in Spinnaker.
 
 ```code
 hal config provider aws account add ${AWS_ACCOUNT_NAME} \
@@ -16,15 +20,15 @@ hal config provider aws account add ${AWS_ACCOUNT_NAME} \
     --assume-role ${ROLE_NAME} \
     --regions us-east-1,us-west-2
 ```
-7. hal config provider aws enable
+3. hal config provider aws enable
 
-8. hal config provider ecs enable
+4. hal config provider ecs enable
 
-9. hal deploy apply
+5. hal deploy apply
 
 ### Extra Steps in Spinnaker to tag deployment subnets ###
 
-10. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
+6. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
 
 https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
 
@@ -42,7 +46,7 @@ cat /etc/spinnaker/.hal/.secret/spinnaker_password
 
 ### Enable on per Application EC2 and ECS ###
 
-11. Set healthcare from load balancer healthcheck to AWS native healthcheck
+7. Set healthcare from load balancer healthcheck to AWS native healthcheck
 
 ### Connect Spinnaker to EKS cluster
 
