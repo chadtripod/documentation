@@ -38,7 +38,7 @@ immutable_metadata={"purpose":"example-purpose"}
 cat /etc/spinnaker/.hal/.secret/spinnaker_password
 ```
 
-### Enable on per Application ec2 and ECS ###
+### Enable on per Application EC2 and ECS ###
 
 11. Set healthcare from load balancer healthcheck to AWS native healthcheck
 
