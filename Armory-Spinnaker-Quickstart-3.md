@@ -10,7 +10,7 @@ The Spinnaker AWS Provider natively deploys to
 - Fargate
 - Lambda
 
-This exercise will setup a ec2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
+This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
 
 
 1. ec2 Pipeline and deployment
