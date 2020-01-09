@@ -95,6 +95,7 @@ Validation Step to assure Roles are configured correctly
 
 1. aws sts get-caller-identity 
 
+# Output shoult look like this:
     ubuntu:~$ **aws sts get-caller-identity**
 {
     "UserId": "AROA3SQXSP6SAJ2ACHF4S:i-0e831b3597893f355",
@@ -102,77 +103,22 @@ Validation Step to assure Roles are configured correctly
     "Arn": "arn:aws:sts::795692138404:assumed-role/Spinnaker-Managing-Role/i-0e831b3597893f355"
 }
 
-2. aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
+2. aws sts assume-role --role-arn [ROLE_ARN] --role-session-name test
 
+# Output should look like this:
+    ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::795692138404:role/Spinnaker-Managed-Role --role-session-name test
+{
+    "Credentials": {
+        "Expiration": "2020-01-09T01:03:05Z",
+        "AccessKeyId": "AWS_ACCESS_KEY",
+        "SecretAccessKey": "AWS_SECRET_ACCESS_KEY",
+        "SessionToken": "FwoGZXIvYXdzEGEaDEyTECcALWUjAgy0GyKoAZ5PapC1qqFwN55X0vRISdtZh19mR3V9p3i5dGZugt3FQ4DNOamVgIG82I1qaspn83aBefdbpUtznN9fJxwPNoRhYinVgIXGdsTWnBuQ57U7s/cDoHosvV5+J3oZj8ffjLInzsI05IrRBiOTmqU3caEP/e+6N5nzHg/9+aS6TCWjCIzjL0mHtclBBQ7k/dijrg/5vTVFh8UGakcJL3SV6gaCHj0k6BUzEii529nwBTItq6/QISV8wfGNLQJOPDB5P3zoQkHjkpoWCEh1p0oc4hEwki8F7NutXNrg14W+"
+    },
+    "AssumedRoleUser": {
+        "AssumedRoleId": "AROA3SQXSP6SGOWFHHJ7B:test",
+        "Arn": "arn:aws:sts::[YOUR_AWS_ACCOUNT_ID]:assumed-role/Spinnaker-Managed-Role/test"
+    }
+}
+ubuntu@:~$
 
-
-## Prerequisities
-
-This process should be run from your local workstation, *not from the Minnaker VM*.  You must have access to the Kubernetes cluster you would like to deploy to, and you need cluster admin permissions on the Kubernetes cluster.
-
-You should be able to run the following (again, from your local workstation, not the Minnaker VM).
-
-```bash
-kubectl get ns
-```
-
-You should also be able to copy files from your local workstation to the Minnaker VM.
-
-## Using `spinnaker-tools`
-
-On your local workstation (where you currently have access to Kubernetes), download the spinnaker-tools binary:
-
-If you're on a Mac:
-
-```bash
-curl -L https://github.com/armory/spinnaker-tools/releases/download/0.0.7/spinnaker-tools-darwin -o spinnaker-tools
-chmod +x spinnaker-tools
-```
-
-If you're on Linux:
-
-```bash
-curl -L https://github.com/armory/spinnaker-tools/releases/download/0.0.7/spinnaker-tools-linux -o spinnaker-tools
-chmod +x spinnaker-tools
-```
-
-Then, run it:
-
-```bash
-./spinnaker-tools create-service-account
-```
-
-This will prompt for the following:
-* Select the Kubernetes cluster to deploy to (this helps if you have multiple Kubernetes clusters configured in your local kubeconfig)
-* Select the namespace (choose the `kube-system` namespace, or select some other namespace or select the option to create a new namespace).  This is the namespace that the Kubernetes ServiceAccount will be created in.
-* Enter a name for the service account.  You can use the default `spinnaker-service-account`, or enter a new (unique) name.
-* Enter a name for the output file.  You can use the default `kubeconfig-sa`, or you can enter a unique name.  You should use something that identifies the Kubernetes cluster you are deploying to (for example, if you are setting up Spinnaker to deploy to your us-west-2 dev cluster, then you could do something like `kubeconfig-us-west-2-dev`)
-
-This will create the service account (and namespace, if applicable), and the ClusterRoleBinding, then create the kubeconfig file with the specified name.
-
-Copy this file from your local workstation to your Minnaker VM.  You can use scp or some other copy mechanism.
-
-## Add the kubeconfig to Spinnaker's Halyard Configuration
-
-On the Minnaker VM, move or copy the file to `/etc/spinnaker/.hal/.secret` (make sure you are creating a new file, not overwriting an existing one).
-
-Then, run this command:
-
-```bash
-hal config provider kubernetes account add us-west-2-dev \
-  --provider-version v2 \
-  --kubeconfig-file /home/spinnaker/.hal/.secret/kubeconfig-us-west-2-dev \
-  --only-spinnaker-managed true
-```
-
-Note two things:
-* Replace us-west-2-dev with something that identifies your Kubernetes cluster
-* Update the `--kubeconfig-file` path with the correct filename.  Note that the path will be `/home/spinnaker/...` **not** `/etc/spinnaker/...` - this is because this command will be run inside the Halyard container, which has local volumes mounted into it.
-
-## Apply your changes
-
-Run this command to apply your changes to Spinnaker:
-
-```bash
-hal deploy apply --wait-for-completion
-```
+You have completed the 2nd step in setting up the Spinnaker AWS Provider.  For Step 3 Please go Here.
