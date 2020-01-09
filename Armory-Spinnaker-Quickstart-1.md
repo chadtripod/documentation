@@ -90,7 +90,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 1. Download aws cli 
 
-    ubuntu:~$ **sudo snap install aws-cli --classic**
+    **sudo snap install aws-cli --classic**
     aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
 
 2. aws sts get-caller-identity 
@@ -108,7 +108,7 @@ Output shoult look like this:
 
 Output should look like this:
 ```code
-    ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::795692138404:role/Spinnaker-Managed-Role --role-session-name test
+    ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
 {
     "Credentials": {
         "Expiration": "2020-01-09T01:03:05Z",
