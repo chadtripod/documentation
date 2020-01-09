@@ -32,7 +32,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 4. Create - **"Spinnaker-Managing-Role"**
 
-5. **"BaseIAM-PassRole"** (Create as inline policy on Spinnaker IAM Role)
+5. **"BaseIAM-PassRole"** (Create as inline policy on **"Spinnaker-Managing-Role"**)
 
 ```json
 {
