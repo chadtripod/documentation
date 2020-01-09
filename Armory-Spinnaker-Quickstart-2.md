@@ -26,10 +26,11 @@ hal config provider aws account add ${AWS_ACCOUNT_NAME} \
 
 5. hal deploy apply
 
-### Extra Steps in Spinnaker to tag deployment subnets ###
+### Extra Steps in AWS Console is to tag deployment subnets for Spinnaker auto discovery###
 
-6. AWS Subnet tagging if tags do not show up.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
+6. AWS Subnet tagging if subnets do not appear in Spinnaker UI.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
 
+For more information here is the Armory documentation on tagging Subnets
 https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
 
 ```code
