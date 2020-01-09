@@ -104,7 +104,7 @@ Output shoult look like this:
     "Arn": "arn:aws:sts::795692138404:assumed-role/Spinnaker-Managing-Role/i-0e831b3597893f355"
 }
 ```
-3. aws sts assume-role --role-arn [ROLE_ARN] --role-session-name test
+3. aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
 
 Output should look like this:
 ```code
