@@ -86,7 +86,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 Validation Step to assure Roles are configured correctly 
 
-## Login to your Minnaker ec2 Instance with SSH     
+## Login to your Minnaker EC2 Instance with SSH     
 
 1. Download aws cli 
 
