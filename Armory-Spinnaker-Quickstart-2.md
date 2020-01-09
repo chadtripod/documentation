@@ -2,7 +2,7 @@
 
 ### Adding AWS Role to Spinnaker through Halyard configuration.  Note AWS account name is within Spinnaker and will appear in UI ###
 
-*NOTE* you MUST configure the regions that Spinnaker can deploy to in the hal command below
+*NOTE* you **MUST** configure the regions that Spinnaker can deploy to in the hal command below
 
 The Account name is arbitrary and should be a name that is an identifiable.  The Name will become visable in Spinnaker UI.  The example account here is "aws-dev-1".
 
