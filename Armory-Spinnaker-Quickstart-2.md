@@ -5,11 +5,11 @@
 *NOTE* you **MUST** configure the regions that Spinnaker can deploy to in the hal command below
 
 The Account name is arbitrary and should be a name that is an identifiable.  The Name will become visable in Spinnaker UI.  The example account here is "aws-dev-1".
-```code
+
 export AWS_ACCOUNT_NAME=aws-dev-1 \
 export ACCOUNT_ID=[YOUR_ACCOUNT_ID] \
 export ROLE_NAME=role/Spinnaker-Managed-Role
-```
+
 ```code
 hal config provider aws account add ${AWS_ACCOUNT_NAME} \
     --account-id ${ACCOUNT_ID} \
