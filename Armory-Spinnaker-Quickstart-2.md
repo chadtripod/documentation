@@ -50,7 +50,7 @@ cat /etc/spinnaker/.hal/.secret/spinnaker_password
 
 7. Set healthcare from load balancer healthcheck to AWS native healthcheck
 
-### Connect Spinnaker to EKS cluster
+# Connect Spinnaker to EKS cluster
 
 ## Prerequisities
 
