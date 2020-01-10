@@ -13,7 +13,7 @@ The Spinnaker AWS Provider natively deploys to
 This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
 
 
-1. ec2 Pipeline and deployment
+1. EC2 Pipeline and deployment
 
 2. EKS deployment 
 
