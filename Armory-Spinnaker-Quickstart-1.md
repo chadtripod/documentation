@@ -4,6 +4,8 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 # Armory Spinnaker AWS Quickstart - Step 1 (Prep AWS with Roles, Permissions, and Trust to allow deployments)
 
+![No CREATE Permission](/documentation/AWS_Prep.png)
+
 ### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
 
 1. Create - **"Spinnaker-Managed-Role"**
