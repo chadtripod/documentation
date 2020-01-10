@@ -1,45 +1,30 @@
-# Armory Spinnaker AWS Quickstart - Step 3 (Deploy an EC2 instance as well as containers to Amazon EKS)
+# Armory Spinnaker Slack Integration
 
-### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
+### This configuration will setup Spinnaker to notify slack when a deployment event has happened such as (pipeline start, pipeline complete, and when a Maunal Judgement is required to procced as an examples).
 
-The Spinnaker AWS Provider natively deploys to 
+1. create slack channel to recieve messages
 
-- EC2
-- EKS
-- ECS
-- Fargate
-- Lambda
+2. create slack app with OAuth Token for Spinnaker to authenticate to
 
-This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
+3. add slack app to the newly created slack channel
 
+4. configure Spinnaker through Halyard to apply config
 
-1. ec2 Pipeline and deployment
+Here are the halyard commands required to configure Spinnaker to forward messages via Slackbot associated with the Slack App and Channel.
 
-2. EKS deployment 
-
-
-
-
-4. "PassRole-and-Certificate" (inline policy for Spinnaker-Managed-Role)
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-              "iam:ListServerCertificates",
-              "iam:PassRole"
-            ],
-            "Resource": [
-                "*"
-            ],
-            "Effect": "Allow"
-        }
-    ]
-}
+```code 
+hal config notification slack edit --bot-name [SLACK_BOT_NAME] --token [OATH_TOKEN_STARTING WITH "xobo-"]
+```
+```code
+hal config notification slack enable
+```
+```code
+hal deploy apply
 ```
 
-5. Spinnaker-Managed-Role -> Trust relationship
+Validate Slack notifications by configuring a manual judgement stage with notification config.
 
-#### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
+
+### Congratulations!
+
+You have setup Spinnaker Slack integration.  Now teams can be notified on events for their deployment pipelines.
