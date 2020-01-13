@@ -100,7 +100,7 @@ Action > Instance Settings > Attach Replace IAM Role.
 
 1. Download aws cli 
 
-    **sudo snap install aws-cli --classic**
+    **sudo snap install aws-cli --classic** \
     aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
 
 2. aws sts get-caller-identity 
