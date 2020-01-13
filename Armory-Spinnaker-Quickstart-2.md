@@ -30,7 +30,7 @@ hal config provider ecs account add ecs-account-name --aws-account aws-dev-1
 
 5. hal deploy apply
 
-### Extra Steps in AWS Console is to tag deployment subnets for Spinnaker auto discovery###
+### Extra Steps in AWS Console is to tag deployment subnets for Spinnaker auto discovery
 
 6. AWS Subnet tagging if subnets do not appear in Spinnaker UI.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
 
