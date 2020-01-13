@@ -22,6 +22,10 @@ hal config provider aws account add ${AWS_ACCOUNT_NAME} \
 ```
 3. hal config provider aws enable
 
+```code
+hal config provider ecs account add ecs-account-name --aws-account aws-dev-1
+```
+
 4. hal config provider ecs enable
 
 5. hal deploy apply
@@ -51,7 +55,7 @@ cat /etc/spinnaker/.hal/.secret/spinnaker_password
 
 ### Enable on per Application EC2 and ECS ###
 
-7. Set healthcare from load balancer healthcheck to AWS native healthcheck
+7. Set healthcare from load balancer healthcheck to AWS native healthcheck.  (If deploying AWS Load Balancers this MAY be something you turn off later).
 
 # Connect Spinnaker to EKS cluster
 
