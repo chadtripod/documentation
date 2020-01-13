@@ -53,7 +53,7 @@ If you would like to validate the subnets that are being auto discovered you can
 cat /etc/spinnaker/.hal/.secret/spinnaker_password
 ```
 
-### Enable on per Application EC2 and ECS ###
+### Enable on per Application EC2 and ECS (Optional if Not using AWS Load Balancer for healthchecks)
 
 7. Set healthcare from load balancer healthcheck to AWS native healthcheck.  (If deploying AWS Load Balancers this MAY be something you turn off later).
 
