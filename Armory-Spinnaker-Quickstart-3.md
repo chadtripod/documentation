@@ -27,6 +27,12 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 2. EKS deployment 
 
+**Note** As a prerequisite create a "quickstart" namespace in EKS with this command.
+
+```code 
+kubectl create ns quickstart
+```
+
 ![No CREATE Permission](/Deploy-Service-EKS.png)
 
 - Navigate to the pipeline page within your **QuickStart** application
