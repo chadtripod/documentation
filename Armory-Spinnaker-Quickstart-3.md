@@ -31,6 +31,8 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 - 
 
+Deployment yaml definition 
+
 ```yaml 
 apiVersion: apps/v1
 kind: Deployment
@@ -51,8 +53,9 @@ spec:
           name: my-nginx
           ports:
             - containerPort: 80
-            ```
-Service Discription 
+```
+
+Service yaml for last Deployment Stage 
 
 ``` json
 apiVersion: v1
