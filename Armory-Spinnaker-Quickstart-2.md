@@ -1,5 +1,7 @@
 # Armory Spinnaker AWS Quickstart - Step 2 (configure Spinnaker AWS Provider to deploy Applications)
 
+![No CREATE Permission](/AWS-Deploy-Spinnaker.png)
+
 ### Adding AWS Role to Spinnaker through Halyard configuration.  Note AWS account name is within Spinnaker and will appear in UI ###
 
 *NOTE* you **MUST** configure the regions that Spinnaker can deploy to in the hal command below
@@ -58,6 +60,8 @@ cat /etc/spinnaker/.hal/.secret/spinnaker_password
 7. Set healthcare from load balancer healthcheck to AWS native healthcheck.  (If deploying AWS Load Balancers this MAY be something you turn off later).
 
 # Connect Spinnaker to EKS cluster
+
+![No CREATE Permission](/Deploy-to-EKS.png)
 
 ## Prerequisities
 
