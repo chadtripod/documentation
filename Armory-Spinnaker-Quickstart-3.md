@@ -17,7 +17,7 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 ![No CREATE Permission](/Deploy-to-EC2.png)
 
-- Create Application Called **QuickStart
+- Create Application Called **QuickStart**
 - Go in App **QuickStart** and create first pipeline to deploy and EC2 instance
 - Click **Add Stage +** and search for a **Bake** stage to bake AMI
 - Select the AWS Region you would like to deploy in
@@ -29,7 +29,18 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 ![No CREATE Permission](/Deploy-Service-EKS.png)
 
-- 
+- Navigate to the pipeline page within your **QuickStart** application
+- Click **Create** button in top right corner
+- Give the name **Deploy-to-EKS** 
+- Click **Add Stage** and Search / Select **Deploy(Manifest)** 
+- Select the **kubeconfig-sa-eks** account created in Step 2
+- Select the **quickstart** namespace
+- Scroll down and paste in the **Deployment** yaml below
+- Click **Save Changes** in the bottom right corner
+- Now create another stange after the **Deployment** stage.  Again select **Deploy(Manifest)**
+- Select the **kubeconfig-sa-eks** account and the **quickstart** namespace for deployment
+- Scroll down and paste in the **Service** yaml below
+- Click **Save Changes** 
 
 Deployment yaml definition (copy and paste into text field in 1st Deploy Manifest stage)
 
