@@ -19,4 +19,5 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 2. EKS deployment 
 
+![No CREATE Permission](/Deploy-to-EKS.png)
 
