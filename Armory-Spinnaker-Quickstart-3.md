@@ -102,9 +102,9 @@ spec:
 - Also, See the Ingress Service that was created to allow public access to your new deployment.
 - Copy and paste FQDN provided by AWS to test nginx landing page
 
-![No CREATE Permission](/Deploy-to-EC2.png)
+![No CREATE Permission](/kubectl-validate.png)
 
-![No CREATE Permission](/Deploy-to-EC2.png)
+![No CREATE Permission](/Deployment-Validation.png)
 
 # Congratulations!
 
