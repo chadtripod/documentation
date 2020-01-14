@@ -68,7 +68,7 @@ cat /etc/spinnaker/.hal/.secret/spinnaker_password
 
 # Connect Spinnaker to Amazon EKS cluster
 
-![No CREATE Permission](/Deploy-to-EKS.png)
+![No CREATE Permission](/Spinnaker-to-EKS.png)
 
 ## Prerequisities
 
