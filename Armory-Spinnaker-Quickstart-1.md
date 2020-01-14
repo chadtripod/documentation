@@ -10,9 +10,9 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 1. Create - **"Spinnaker-Managed-Role"**
 
-2. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
+3. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
 
-3. **"PassRole-and-Certificate"** (inline policy for Spinnaker-Managed-Role)
+4. **"PassRole-and-Certificate"** (inline policy for Spinnaker-Managed-Role)
 
 ```json
 {
@@ -32,9 +32,11 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 }
 ```
 
-4. Create - **"Spinnaker-Managing-Role"**
+5. Create - **"Spinnaker-Managing-Role"**
 
-5. **"BaseIAM-PassRole"** (Create as inline policy on **"Spinnaker-Managing-Role"**)
+6. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
+
+7. **"BaseIAM-PassRole"** (Create as inline policy on **"Spinnaker-Managing-Role"**)
 
 ```json
 {
@@ -61,7 +63,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 }
 ```
 
-6. Spinnaker-Managed-Role -> Trust relationship
+8. Spinnaker-Managed-Role -> Trust relationship
 
 #### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
 
