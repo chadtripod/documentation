@@ -107,7 +107,6 @@ spec:
 ![No CREATE Permission](/Deployment-Validation.png)
 
 # Congratulations!
-![No CREATE Permission](/checkered_flag.png)
 
 You have completed the Armory Spinnaker QuickStart exercise!  You can now deploy to AWS using Spinnaker.  What's Next?
 
