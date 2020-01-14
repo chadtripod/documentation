@@ -13,19 +13,19 @@ The Spinnaker AWS Provider natively deploys to
 This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
 
 
-1. EC2 Pipeline and deployment
+### EC2 Pipeline and deployment
 
 ![No CREATE Permission](/Deploy-to-EC2.png)
 
-- Create Application Called **QuickStart**
-- Go in App **QuickStart** and create first pipeline to deploy and EC2 instance
-- Click **Add Stage +** and search for a **Bake** stage to bake AMI
-- Select the AWS Region you would like to deploy in
-- Click **Add Server Group** and configure basic AMI bake settings (Account, Region, Subnet, Instance Type, and AWS SSH key)
-- Click **Done** and then **Save Changes** in the bottom right corner
-- Click **Add Stage** and add another stage called **Deploy** for AWS EC2
+1. Create Application Called **QuickStart**
+2. Go in App **QuickStart** and create first pipeline to deploy and EC2 instance
+3. Click **Add Stage +** and search for a **Bake** stage to bake AMI
+4. Select the AWS Region you would like to deploy in
+5. Click **Add Server Group** and configure basic AMI bake settings (Account, Region, Subnet, Instance Type, and AWS SSH key)
+6. Click **Done** and then **Save Changes** in the bottom right corner
+7. Click **Add Stage** and add another stage called **Deploy** for AWS EC2
 
-2. EKS deployment 
+### EKS deployment 
 
 **Note** As a prerequisite create a "quickstart" namespace in EKS with this command.
 
@@ -35,18 +35,18 @@ kubectl create ns quickstart
 
 ![No CREATE Permission](/Deploy-Service-EKS.png)
 
-- Navigate to the pipeline page within your **QuickStart** application
-- Click **Create** button in top right corner
-- Give the name **Deploy-to-EKS** 
-- Click **Add Stage** and Search / Select **Deploy(Manifest)** 
-- Select the **kubeconfig-sa-eks** account created in Step 2
-- Select the **quickstart** namespace
-- Scroll down and paste in the **Deployment** yaml below
-- Click **Save Changes** in the bottom right corner
-- Now create another stange after the **Deployment** stage.  Again select **Deploy(Manifest)**
-- Select the **kubeconfig-sa-eks** account and the **quickstart** namespace for deployment
-- Scroll down and paste in the **Service** yaml below
-- Click **Save Changes** 
+1. Navigate to the pipeline page within your **QuickStart** application
+2. Click **Create** button in top right corner
+3. Give the name **Deploy-to-EKS** 
+4. Click **Add Stage** and Search / Select **Deploy(Manifest)** 
+5. Select the **kubeconfig-sa-eks** account created in Step 2
+6. Select the **quickstart** namespace
+7. Scroll down and paste in the **Deployment** yaml below
+8. Click **Save Changes** in the bottom right corner
+9. Now create another stange after the **Deployment** stage.  Again select **Deploy(Manifest)**
+10. Select the **kubeconfig-sa-eks** account and the **quickstart** namespace for deployment
+11. Scroll down and paste in the **Service** yaml below
+12. Click **Save Changes** 
 
 ## Time to run your EKS pipeline and validate
 
