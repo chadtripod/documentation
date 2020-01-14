@@ -22,15 +22,18 @@ hal config provider aws account add ${AWS_ACCOUNT_NAME} \
     --assume-role ${ROLE_NAME} \
     --regions us-east-1,us-west-2
 ```
-3. hal config provider aws enable
-
+```code
+hal config provider aws enable
+```
 ```code
 hal config provider ecs account add ecs-account-name --aws-account aws-dev-1
 ```
-
-4. hal config provider ecs enable
-
-5. hal deploy apply
+```code
+hal config provider ecs enable
+```
+``code
+hal deploy apply
+```
 
 ### Extra Steps in AWS Console is to tag deployment subnets for Spinnaker auto discovery
 
