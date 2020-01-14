@@ -42,6 +42,11 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 - Scroll down and paste in the **Service** yaml below
 - Click **Save Changes** 
 
+## Time to run your EKS pipeline and validate
+
+- Click back to the pipeline page using the **Back to Executions** to the left of the pipeline name
+- Click on the **Start Manual Execution** on the new pipeline, then click **Execution Details** to see pipeline in action
+
 Deployment yaml definition (copy and paste into text field in 1st Deploy Manifest stage)
 
 ```yaml 
@@ -84,4 +89,20 @@ spec:
     run: my-nginx
   type: LoadBalancer
 ```
+## Validation in EKS and in Spinnaker
 
+- In EKS run **kubectl get pods -n quickstart** to see nginx pods being created
+- In Spinnaker navigate to the Applications page and see the deployment + Containers there
+- Also, See the Ingress Service that was created to allow public access to your new deployment.
+- Copy and paste FQDN provided by AWS to test nginx landing page
+
+# Congratulations!
+
+You have completed the Armory Spinnaker QuickStart exercise!  You can now deploy to AWS using Spinnaker.  What's Next?
+
+- Connect your Spinnaker instance to your repositories / artifacts (Github, Sonatype, Artifactory, DockerHub, ECR, GCR, etc)
+- Build in a automated trigger from your CI systems (Jenkins, Bamboo, CircleCI, TravisCI, Nexus, Git, Generic Webhook, etc)
+- Integrate with 3rd party systems (OKTA, Sumo Logic, Splunk, Datadog, Newrelic, Slack, etc)
+- Integrate with DevSecOps tools (Xray, ChaosMonkey, Artifiactory, etc)
+
+To get expert help in any of the areas above you can contact Armory.io at https://go.armory.io/needs-analysis
