@@ -56,7 +56,7 @@ i.e. immutable_metadata={"purpose":"**us-west-2-dev-subnet**"}
 ***Note*** Do not change "purpose", and YOUR subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. 
 
 
-# Connect Spinnaker to Amazon EKS cluster
+# NEXT: Connect Spinnaker to Amazon EKS cluster
 
 ![No CREATE Permission](/Spinnaker-to-EKS.png)
 
