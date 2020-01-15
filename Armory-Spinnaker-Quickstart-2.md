@@ -48,7 +48,8 @@ For more information here is the Armory documentation on tagging Subnets
 https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
 
 ```code
-immutable_metadata={"purpose":"example-purpose"}
+Key                 Value
+immutable_metadata  {"purpose":"example-purpose"}
 ```
 ***Note*** Do not change "purpose", and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. i.e. immutable_metadata={"purpose":"**us-west-2-dev-subnet**"}
 
