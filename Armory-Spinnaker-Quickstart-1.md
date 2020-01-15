@@ -111,9 +111,9 @@ Output shoult look like this:
 ```code
     ubuntu:~$ **aws sts get-caller-identity**
 {
-    "UserId": "AROA3SQXSP6SAJ2ACHF4S:i-0e831b3597893f355",
-    "Account": "795692138404",
-    "Arn": "arn:aws:sts::795692138404:assumed-role/Spinnaker-Managing-Role/i-0e831b3597893f355"
+    "UserId": "AROA3SQXSP.............7893f355",
+    "Account": "[YOUR_AWS_ACCOUNT_ID]",
+    "Arn": "arn:aws:sts::[YOUR_AWS_ACCOUNT_ID]:assumed-role/Spinnaker-Managing-Role/i-0e.........7893f355"
 }
 ```
 3. aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
