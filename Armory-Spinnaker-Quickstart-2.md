@@ -50,7 +50,7 @@ https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
 ```code
 immutable_metadata={"purpose":"example-purpose"}
 ```
-***Note*** Do not change "purpose", and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. i.e. immutable_metadata={"purpose":"us-west-2-dev-subnet"}
+***Note*** Do not change "purpose", and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. i.e. immutable_metadata={"purpose":"**us-west-2-dev-subnet**"}
 
 If you would like to validate the subnets that are being auto discovered you can put this query in the browser.
 
