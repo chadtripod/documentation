@@ -17,7 +17,7 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 ![No CREATE Permission](/Deploy-to-EC2.png)
 
-1. Create Application Called **QuickStart** by clicking "**Applications**" tab > "**Action**" (top right) > "**Create New App**" with the following Settings
+1. Create Application called **QuickStart** by clicking "**Applications**" tab > "**Action**" (top right) > "**Create New App**" with the following Settings
 
 ![No CREATE Permission](/New-App.png)
   
