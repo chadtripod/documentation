@@ -105,8 +105,11 @@ Action > Instance Settings > Attach Replace IAM Role.
     **sudo snap install aws-cli --classic** \
     aws-cli 1.16.266 from Amazon Web Services (aws✓) installed
 
-2. aws sts get-caller-identity 
+2. Validate Spinnaker Managing Role
 
+```code
+aws sts get-caller-identity 
+```
 Output shoult look like this:
 ```code
     ubuntu:~$ **aws sts get-caller-identity**
@@ -116,8 +119,10 @@ Output shoult look like this:
     "Arn": "arn:aws:sts::[YOUR_AWS_ACCOUNT_ID]:assumed-role/Spinnaker-Managing-Role/i-0e.........7893f355"
 }
 ```
-3. aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
-
+3. Validate Spinnaker Managing Role can Assume Managing Role
+```code
+aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
+```
 Output should look like this:
 ```code
     ubuntu:~$ aws sts assume-role --role-arn arn:aws:iam::[YOUR_AWS_ACCOUNT_ID]:role/Spinnaker-Managed-Role --role-session-name test
