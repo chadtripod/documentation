@@ -99,7 +99,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 ## Login to your Minnaker EC2 Instance with SSH  
 
-### Validation Step to assure Roles are configured correctly 
+### Validation Steps to assure Roles are configured correctly 
 
 1. Download aws cli 
 
@@ -111,7 +111,7 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 ```code
 aws sts get-caller-identity 
 ```
-Output shoult look like this:
+Output should look like this:
 ```code
     ubuntu:~$ **aws sts get-caller-identity**
 {
