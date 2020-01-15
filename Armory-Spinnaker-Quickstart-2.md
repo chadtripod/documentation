@@ -39,9 +39,9 @@ hal config provider ecs enable
 hal deploy apply
 ```
 
-### Extra Steps in AWS Console is to tag deployment subnets for Spinnaker auto discovery
+### Tag AWS Subnets for Spinnaker Auto Discovery
 
-6. AWS Subnet tagging if subnets do not appear in Spinnaker UI.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
+3. AWS Subnet tagging if subnets do not appear in Spinnaker UI.  "example-purpose" should be a descriptor of the subnet and will appear in the Spinnaker UI dropdown.
 
 For more information here is the Armory documentation on tagging Subnets
 
@@ -50,10 +50,9 @@ https://docs.armory.io/spinnaker-install-admin-guides/aws-subnets/
 ```code
 immutable_metadata={"purpose":"example-purpose"}
 ```
-***Note*** purpose should be left and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. i.e. immutable_metadata={"purpose":"us-west-2-dev-subnet"}
+***Note*** Do not change "purpose", and the subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. i.e. immutable_metadata={"purpose":"us-west-2-dev-subnet"}
 
 If you would like to validate the subnets that are being auto discovered you can put this query in the browser.
-
 
 
 ### Login to the Spinnaker UI.  If you forgot your password you can retreieve it from your Minnaker Instance by SSH'ing in and running the command below.
