@@ -21,7 +21,7 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 ![No CREATE Permission](/New-App.png)
   
-2. Go in App **QuickStart** and create first pipeline to deploy and EC2 instance
+2. Go into Application **QuickStart** and create first pipeline to deploy and EC2 instance
 3. Click **Add Stage +** and search for a **Bake** stage to bake AMI
 4. Select the AWS Region you would like to deploy in
 5. Click **Add Server Group** and configure basic AMI bake settings (Account, Region, Subnet, Instance Type, and AWS SSH key)
