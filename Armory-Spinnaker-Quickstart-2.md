@@ -9,11 +9,11 @@
 The Account name is arbitrary and should be a name that is an identifiable.  The Name will become visable in Spinnaker UI.  The example account here is "aws-dev-1".
 
 1. Set environment variables for halyard command.
-
+```code
 export AWS_ACCOUNT_NAME=aws-dev-1 \
 export ACCOUNT_ID=[YOUR_ACCOUNT_ID] \
 export ROLE_NAME=role/Spinnaker-Managed-Role
-
+```
 2. Run Halyard command to configure AWS Provider with an Account in Spinnaker.
 
 ```code
