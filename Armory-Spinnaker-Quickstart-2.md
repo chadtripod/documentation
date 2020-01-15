@@ -60,7 +60,7 @@ immutable_metadata  {"purpose":"example-purpose"}
 
 ![No CREATE Permission](/Spinnaker-to-EKS.png)
 
-## Prerequisities
+## Prerequisities for Creating Service Account
 
 This process should be run from your local workstation, *not from the Minnaker VM*.  You must have access to the Kubernetes cluster you would like to deploy to, and you need cluster admin permissions on the Kubernetes cluster.
 
