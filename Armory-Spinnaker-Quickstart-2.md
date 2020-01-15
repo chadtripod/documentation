@@ -8,7 +8,7 @@
 
 The Account name is arbitrary and should be a name that is an identifiable.  The Name will become visable in Spinnaker UI.  The example account here is "aws-dev-1".
 
-1. Set Variables for halyard command.
+1. Set environment variables for halyard command.
 
 export AWS_ACCOUNT_NAME=aws-dev-1 \
 export ACCOUNT_ID=[YOUR_ACCOUNT_ID] \
