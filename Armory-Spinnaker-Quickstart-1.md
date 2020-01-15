@@ -90,11 +90,11 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 ### Bind Spinnaker-Managing-Role to Minnaker Instance in AWS Console
 
-1. Locate Minnaker EC2 instance
+1. Locate Minnaker EC2 instance in AWS Console and click 
 
-Action > Instance Settings > Attach Replace IAM Role.  
+    - UP top click Action > Instance Settings > Attach Replace IAM Role.  
 
-2. From Dropdown Find **Spinnaker-Managing-Role** and click the Apply Button.
+2. From Dropdown Find **Spinnaker-Managing-Role** and click the Apply Button to bind Role to Minnaker Instance.
 
 ### Validation Step to assure Roles are configured correctly 
 
