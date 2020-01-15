@@ -52,6 +52,7 @@ Key                 Value
 immutable_metadata  {"purpose":"example-purpose"}
 ```
 i.e. immutable_metadata={"purpose":"**us-west-2-dev-subnet**"}
+
 ***Note*** Do not change "purpose", and YOUR subnet identifier should replace "example-purpose".  This will show up in Spinnaker UI as dropdown options. 
 
 ### Login to the Spinnaker UI.  If you forgot your password you can retreieve it from your Minnaker Instance by SSH'ing in and running the command below.
