@@ -19,7 +19,7 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 
 1. Create Application Called **QuickStart** by clicking "**Applications**" tab > "**Action**" (top right) > "**Create New App**" with the following Settings
 
-![No CREATE Permission](/Deploy-to-EC2.png)
+![No CREATE Permission](/New-App.png)
   
 2. Go in App **QuickStart** and create first pipeline to deploy and EC2 instance
 3. Click **Add Stage +** and search for a **Bake** stage to bake AMI
