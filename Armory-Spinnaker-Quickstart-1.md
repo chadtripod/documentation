@@ -96,9 +96,10 @@ AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID]
 
 2. From Dropdown Find **Spinnaker-Managing-Role** and click the Apply Button to bind Role to Minnaker Instance.
 
-### Validation Step to assure Roles are configured correctly 
 
-## Login to your Minnaker EC2 Instance with SSH     
+## Login to your Minnaker EC2 Instance with SSH  
+
+### Validation Step to assure Roles are configured correctly 
 
 1. Download aws cli 
 
