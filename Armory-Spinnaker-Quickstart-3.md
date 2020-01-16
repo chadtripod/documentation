@@ -27,6 +27,10 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 5. Click **Add Server Group** and configure basic AMI bake settings (Account, Region, Subnet, Instance Type, and AWS SSH key)
 6. Click **Done** and then **Save Changes** in the bottom right corner
 7. Click **Add Stage** and add another stage called **Deploy** for AWS EC2
+8. 
+9. Run your Pipeline and Validate!  The end result will be an Autoscale Group build within your AWS subnet.
+
+![No CREATE Permission](/AutoScale-Group.png)
 
 ### EKS deployment 
 
