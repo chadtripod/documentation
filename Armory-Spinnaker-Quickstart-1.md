@@ -7,9 +7,9 @@ Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into M
 
 ### In this step we will configure 2 AWS Roles for Spinnaker to deploy to your AWS environment
 
-1. Create - **"Spinnaker-Managed-Role"**
+1. Create - **"Spinnaker-Managed-Role"** in AWS Console
 
-3. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
+3. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role" in **Permissions**
 
 4. **"PassRole-and-Certificate"** (inline policy for Spinnaker-Managed-Role)
 
@@ -33,7 +33,7 @@ Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into M
 
 5. Create - **"Spinnaker-Managing-Role"**
 
-6. Bind **"PowerUserAccess"** to "Spinnaker-Managed-Role"
+6. Bind **"PowerUserAccess"** to "Spinnaker-Managing-Role"
 
 7. **"BaseIAM-PassRole"** (Create as inline policy on **"Spinnaker-Managing-Role"**)
 
@@ -64,7 +64,7 @@ Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into M
 
 8. Spinnaker-Managed-Role -> Trust relationship
 
-#### Now Spinnaker-Managed-Role must have Trust relationship with Spinnaker-Managing-Role ####
+#### Now "Spinnaker-Managed-Role" must have Trust relationship with "Spinnaker-Managing-Role" ####
 
 ```json
 {
@@ -96,7 +96,7 @@ Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into M
 2. From Dropdown Find **Spinnaker-Managing-Role** and click the **Apply** Button to bind Role to Minnaker Instance.
 
 
-## Login to your Minnaker EC2 Instance with SSH  
+## Login to your Minnaker EC2 Instance with SSH (Outside of Halyard Container)
 
 ### Validation Steps to assure Roles are configured correctly 
 
