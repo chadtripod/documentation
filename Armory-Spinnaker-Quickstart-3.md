@@ -11,13 +11,6 @@ The Spinnaker AWS Provider natively deploys to
 - Fargate
 - Lambda - Not enabled in Quickstart
 
-This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and Container based workloads.
-
-
-### EC2 Pipeline and deployment
-
-![No CREATE Permission](/Deploy-to-EC2.png)
-
 1. Create Application called **QuickStart** by clicking "**Applications**" tab > "**Action**" (top right) > "**Create New App**" with the following Settings
 
 ![No CREATE Permission](/New-App.png)
@@ -30,6 +23,11 @@ This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnak
 7. Click **Add Stage** and add another stage called **Deploy** for AWS EC2
 8. 
 9. Run your Pipeline and Validate!  The end result will be an Auto Scaling Group build within your AWS subnet.
+
+### EC2 Pipeline and deployment
+
+![No CREATE Permission](/Deploy-to-EC2.png)
+
 
 ![No CREATE Permission](/AutoScale-Group.png)
 
