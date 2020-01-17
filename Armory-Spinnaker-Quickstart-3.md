@@ -21,7 +21,7 @@ The Spinnaker AWS Provider natively deploys to
 5. Click **Add Server Group** and configure basic AMI bake settings (Account, Region, Subnet, Instance Type, and AWS SSH key)
 6. Click **Done** and then **Save Changes** in the bottom right corner
 7. Click **Add Stage** and add another stage called **Deploy** for AWS EC2
-8. 
+8. Click the "**Back to Execution**" button on the top left of the Pipeline Name
 9. Run your Pipeline and Validate!  The end result will be an Auto Scaling Group build within your AWS subnet.
 
 ### EC2 Pipeline and deployment
