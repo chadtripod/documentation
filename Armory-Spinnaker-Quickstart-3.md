@@ -3,14 +3,6 @@
 
 ### First, login to your Minnaker instance GUI.  You can access it by getting the Public IP address from your AWS Console.
 
-The Spinnaker AWS Provider natively deploys to 
-
-- EC2
-- EKS
-- ECS
-- Fargate
-- Lambda - Not enabled in Quickstart
-
 1. Create Application called **QuickStart** by clicking "**Applications**" tab > "**Action**" (top right) > "**Create New App**" with the following Settings
 
 ![No CREATE Permission](/New-App.png)
