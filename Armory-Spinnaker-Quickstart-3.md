@@ -20,7 +20,7 @@
 
 ![No CREATE Permission](/Deploy-to-EC2.png)
 
-### Note - Don't mind the red dot on the Bake Stage.  It's informational suggesting a CI Trigger should be configured for a Bake Stage to ensure you are deploying the latest code and artifacts
+### Note - Don't mind the red dot in the Bake Stage.  It's informational suggesting a CI Trigger should be configured for a Bake Stage to ensure you are deploying the latest code and artifacts
 
 ![No CREATE Permission](/AutoScale-Group.png)
 
