@@ -91,7 +91,7 @@ Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into M
 
 1. Locate Minnaker EC2 instance in AWS Console and click 
 
-    - UP top click **Action** > **Instance Settings** > **Attach Replace IAM Role**.  
+    - UP top click "**Action**" > "**Instance Settings**" > "**Attach Replace IAM Role**".  
 
 2. From Dropdown Find **Spinnaker-Managing-Role** and click the **Apply** Button to bind Role to Minnaker Instance.
 
