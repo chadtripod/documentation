@@ -1,4 +1,6 @@
-Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into Minnaker Instance with AWS keys, 
+Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into Minnaker Instance with AWS keys.
+
+**Video Walkthrough** at the bottom of this document.
 
 # Armory Spinnaker AWS Quickstart - Step 1 
 # Prep AWS by creating Roles, Permissions, and Trust
