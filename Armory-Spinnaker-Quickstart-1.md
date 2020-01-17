@@ -143,6 +143,6 @@ Output should look like this:
 ubuntu@:~$
 ```
 ### Congratulations! 
-You have completed the 2nd step in setting up the Spinnaker AWS Provider.  For Step 3 Please go Here.
+You have completed the 1nd step in setting up the Spinnaker AWS Provider.  For Step-2 Please go Here.
 
 [![alt text](/Armory-AWS-Step-1.png)](https://youtu.be/epKXV2FIm6Y "title")
