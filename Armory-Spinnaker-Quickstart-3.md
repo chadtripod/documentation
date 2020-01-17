@@ -1,6 +1,6 @@
 # Armory Spinnaker AWS Quickstart - Step 3 (Deploy an EC2 instance as well as containers to Amazon EKS)
 
-### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
+### Login to your Minnaker instance GUI.  You can access it by getting the Public IP address from your AWS Console.
 
 The Spinnaker AWS Provider natively deploys to 
 
@@ -10,7 +10,7 @@ The Spinnaker AWS Provider natively deploys to
 - Fargate
 - Lambda
 
-This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and container based workloads.
+This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and Container based workloads.
 
 
 ### EC2 Pipeline and deployment
