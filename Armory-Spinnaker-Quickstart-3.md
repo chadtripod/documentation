@@ -3,6 +3,12 @@
 
 ### First, login to your Minnaker instance GUI.  You can access it by getting the Public IP address from your AWS Console.
 
+If you have forgotten the password to your Minnaker instance you can always use this command when SSH'd into the Minnaker instance
+
+```code
+cat /etc/spinnaker/.hal/.secret/spinnaker_password
+```
+
 1. Create Application called **QuickStart** by clicking "**Applications**" tab > "**Action**" (top right) > "**Create New App**" with the following Settings
 
 ![No CREATE Permission](/New-App.png)
