@@ -1,7 +1,7 @@
 # Armory Spinnaker AWS Quickstart - Step 3 
 ## Deploy to EC2 and EKS
 
-### First, Log-in to your Minnaker instance GUI.  You can access it by getting the Public IP address from your AWS Console.
+### First, login to your Minnaker instance GUI.  You can access it by getting the Public IP address from your AWS Console.
 
 The Spinnaker AWS Provider natively deploys to 
 
