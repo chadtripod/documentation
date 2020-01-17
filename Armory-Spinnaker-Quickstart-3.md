@@ -1,5 +1,5 @@
 # Armory Spinnaker AWS Quickstart - Step 3 
-# (Deploy an EC2 instance as well as containers to Amazon EKS)
+# Deploy to EC2 and EKS
 
 ### Login to your Minnaker instance GUI.  You can access it by getting the Public IP address from your AWS Console.
 
