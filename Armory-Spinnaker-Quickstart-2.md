@@ -1,4 +1,5 @@
-# Armory Spinnaker AWS Quickstart - Step 2 (configure Spinnaker AWS Provider to deploy Applications)
+# Armory Spinnaker AWS Quickstart - Step 2 
+# configure Spinnaker AWS Provider to deploy Applications
 
 ![No CREATE Permission](/AWS-Deploy-Spinnaker.png)
 
