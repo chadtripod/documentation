@@ -9,7 +9,7 @@ The Spinnaker AWS Provider natively deploys to
 - EKS
 - ECS
 - Fargate
-- Lambda
+- Lambda - Not enabled in Quickstart
 
 This exercise will setup a EC2 and EKS pipeline.  From there you'll have Spinnaker configured to deploy YOUR VM and Container based workloads.
 
