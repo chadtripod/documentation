@@ -143,4 +143,4 @@ ubuntu@:~$
 ### Congratulations! 
 You have completed the 2nd step in setting up the Spinnaker AWS Provider.  For Step 3 Please go Here.
 
-[![alt text](/Armory-AWS-Step-1.png)](http://example.com/link "title")
+[![alt text](/Armory-AWS-Step-1.png)](https://youtu.be/epKXV2FIm6Y "title")
