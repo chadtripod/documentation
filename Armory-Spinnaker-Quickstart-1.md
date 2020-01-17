@@ -1,8 +1,7 @@
-Do a Search and Replace for all occrances of [YOUR_AWS_ACCOUNT_ID] with your actual aws account value
+Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into Minnaker Instance with AWS keys, 
 
-AWS Account number = 1234567890 (Use this value to replace [YOUR_AWS_ACCOUNT_ID])
-
-# Armory Spinnaker AWS Quickstart - Step 1 (Prep AWS with Roles, Permissions, and Trust to allow deployments)
+# Armory Spinnaker AWS Quickstart - Step 1 
+# Prep AWS with Roles, Permissions, and Trust
 
 ![No CREATE Permission](/AWS-Roles-Spinnaker.png)
 
