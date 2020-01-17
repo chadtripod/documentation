@@ -5,7 +5,7 @@ Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into M
 
 ![No CREATE Permission](/AWS-Roles-Spinnaker.png)
 
-### AWS Prep for Spinnaker Create 2 AWS Roles to deploy from Spinnaker to AWS
+### In this step we will configure 2 AWS Roles for Spinnaker to deploy to your AWS environment
 
 1. Create - **"Spinnaker-Managed-Role"**
 
