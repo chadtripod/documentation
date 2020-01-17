@@ -1,7 +1,5 @@
 Prerequisite - Get your AWS Account number avaiable in a text editor, SSH into Minnaker Instance with AWS keys, 
 
-[![alt text](/Armory-AWS-Step-1.png)](http://example.com/link "title")
-
 # Armory Spinnaker AWS Quickstart - Step 1 
 # Prep AWS by creating Roles, Permissions, and Trust
 
@@ -144,3 +142,5 @@ ubuntu@:~$
 ```
 ### Congratulations! 
 You have completed the 2nd step in setting up the Spinnaker AWS Provider.  For Step 3 Please go Here.
+
+[![alt text](/Armory-AWS-Step-1.png)](http://example.com/link "title")
